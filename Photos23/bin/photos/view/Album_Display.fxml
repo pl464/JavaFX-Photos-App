@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="620.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.Controller">
+   <children>
+      <Label layoutX="26.0" layoutY="22.0" text="Your Albums">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TableView layoutX="36.0" layoutY="132.0" prefHeight="427.0" prefWidth="528.0">
+        <columns>
+          <TableColumn prefWidth="185.0" text="Name" />
+          <TableColumn prefWidth="110.0" text="# of Photos" />
+            <TableColumn prefWidth="232.0" text="Date Range" />
+        </columns>
+      </TableView>
+      <Button layoutX="487.0" layoutY="21.0" mnemonicParsing="false" text="Logout" />
+      <Button layoutX="36.0" layoutY="568.0" mnemonicParsing="false" text="Create" />
+      <Button layoutX="36.0" layoutY="84.0" mnemonicParsing="false" text="Search Albums" />
+      <Button layoutX="122.0" layoutY="568.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="209.0" layoutY="568.0" mnemonicParsing="false" text="Rename" />
+      <Button defaultButton="true" layoutX="483.0" layoutY="568.0" mnemonicParsing="false" text="Open" />
+      <Button layoutX="191.0" layoutY="84.0" mnemonicParsing="false" text="New Tag" />
+   </children>
+</AnchorPane>
