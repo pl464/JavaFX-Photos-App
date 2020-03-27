@@ -1,36 +1,25 @@
 package photos;
 
-//import java.io.File;
-
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import photos.view.Controller;
+import photos.view.SceneManager;
 
 public class Photos extends Application {
-	Stage stage;
-	Controller controller;
-	
+	Stage mainStage;
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		
-		Parent root = FXMLLoader.load(getClass().getResource("view/Login_Window.fxml"));
-		Scene scene = new Scene(root);
-		
-		stage.setResizable(false);
-		
-		stage.setTitle("Photo Library");
-		stage.setScene(scene);
-		stage.show();
-		stage.centerOnScreen();
-		
+		SceneManager sceneManager = new SceneManager(stage);
+		sceneManager.switchScene("Login_Window.fxml");
 	}
 	
 	public static void main(String[] args) {
 		launch(args);
 	}
+	/*
+	@Override
+	public void stop() throws Exception {
+		ois.close();
+	}
+	*/
 }

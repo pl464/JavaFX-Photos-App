@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.Controller">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.AlbumsController">
    <children>
       <Label layoutX="26.0" layoutY="22.0" text="Your Albums">
          <font>
@@ -20,7 +20,7 @@
             <TableColumn prefWidth="232.0" text="Date Range" />
         </columns>
       </TableView>
-      <Button layoutX="487.0" layoutY="21.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="logoutButton" layoutX="487.0" layoutY="21.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
       <Button layoutX="34.0" layoutY="636.0" mnemonicParsing="false" text="Create" />
       <Button layoutX="36.0" layoutY="84.0" mnemonicParsing="false" text="Search Albums" />
       <Button layoutX="120.0" layoutY="636.0" mnemonicParsing="false" text="Delete" />
