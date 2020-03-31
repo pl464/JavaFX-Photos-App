@@ -1,7 +1,4 @@
 package photos.view;
-import photos.User;
-
-import java.util.HashMap;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,23 +9,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-public class LoginController {
-	HashMap<String, User> users;
-	SceneManager sceneManager;
-	
-	public void setSceneManager(SceneManager sceneManager) {
-		this.sceneManager = sceneManager;
-	}
-	
-	/**
-	 * Allows user information to be passed into this Controller class from the SceneManager.
-	 * @param users
-	 */
-	public void setUsers (HashMap<String, User> users){
-		this.users = users;
-		return;
-	}
-
+public class LoginController extends Controller{
 	@FXML 
 	private Button loginButton;
 	@FXML 
@@ -36,8 +17,12 @@ public class LoginController {
 	
 	@FXML
 	private void login(ActionEvent e) throws Exception {
+		if (username.getText().equals("admin")){
+			sceneManager.switchScene("Admin.fxml", users);
+			return;
+		}
 		if (users.containsKey(username.getText())) {
-			sceneManager.switchScene("Album_Display.fxml");
+			sceneManager.switchScene("Albums_Window.fxml", users);
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setContentText("Username not found.");
