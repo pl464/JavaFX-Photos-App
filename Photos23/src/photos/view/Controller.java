@@ -14,17 +14,22 @@ import photos.User;
 public abstract class Controller {
 	SceneManager sceneManager;
 	public static HashMap<String, User> users;
+	public static User currUser;
 	
 	public void setSceneManager(SceneManager sceneManager) {
 		this.sceneManager = sceneManager;
 	}
 
 	/**
-	 * Allows user information to be passed into this Controller class from the SceneManager.
+	 * Allows user information to be passed into this Controller instance from the SceneManager.
 	 * @param users
 	 */
 	public void setUsers (HashMap<String, User> userData){
 		users = userData;
 		return;
+	}
+	
+	public void setCurrUser (User user) {
+		currUser = user;
 	}
 }

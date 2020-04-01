@@ -18,10 +18,11 @@ public class LoginController extends Controller{
 	@FXML
 	private void login(ActionEvent e) throws Exception {
 		if (username.getText().equals("admin")){
-			sceneManager.switchScene("Admin.fxml", users);
+			sceneManager.switchScene("Admin_Window.fxml", users);
 			return;
 		}
 		if (users.containsKey(username.getText())) {
+			setCurrUser(users.get(username.getText()));
 			sceneManager.switchScene("Albums_Window.fxml", users);
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);

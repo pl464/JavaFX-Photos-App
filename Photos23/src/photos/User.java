@@ -8,9 +8,9 @@ public class User implements Serializable {
 
 	static final long serialVersionUID = 1L;
 	
-	HashMap<String, ArrayList<String>> albums;
-	HashMap<String, Image> images;
-	ArrayList<String> tagnames;
+	public HashMap<String, ArrayList<String>> albums;
+	public HashMap<String, Image> images;
+	public ArrayList<String> tagnames;
 	
 	public User() {
 		

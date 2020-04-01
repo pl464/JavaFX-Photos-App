@@ -15,7 +15,7 @@
       </Label>
       <Button fx:id="logoutButton" layoutX="301.0" layoutY="22.0" mnemonicParsing="false" onAction="#logout" prefHeight="39.0" prefWidth="83.0" text="Logout" />
       <Button fx:id="addButton" layoutX="96.0" layoutY="452.0" mnemonicParsing="false" onAction="#addPopup" prefHeight="39.0" prefWidth="91.0" text="Add" />
-      <Button layoutX="210.0" layoutY="452.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="91.0" text="Remove" />
+      <Button fx:id="removeButton" layoutX="210.0" layoutY="452.0" mnemonicParsing="false" onAction="#removeUser" prefHeight="39.0" prefWidth="91.0" text="Remove" />
       <ListView fx:id="userList" layoutX="38.0" layoutY="96.0" prefHeight="334.0" prefWidth="331.0" />
       <Label layoutX="38.0" layoutY="69.0" text="Users:" />
    </children>

@@ -1,4 +1,5 @@
 package photos.view;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,23 +8,24 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class NewUserController {
-	AdminController adminController; //the calling controller 
+public class NewAlbumController {
+	AlbumsController albumsController;
 	
 	@FXML
-	private TextField username;
+	private TextField albumName;
 	@FXML
 	private Button okButton;
 	@FXML
 	private Button cancelButton;
 	
-	public void setParentController(AdminController adminController) {
-		this.adminController = adminController;
+	public void setParentController(AlbumsController albumsController) {
+		this.albumsController = albumsController;
 		return;
 	}
+	
 	@FXML
-	private void addUser(ActionEvent e) throws Exception {
-		adminController.addUser(username.getText());
+	private void addAlbum(ActionEvent e) throws Exception {
+		albumsController.addAlbum(albumName.getText());
 		cancelButton.fire();
 	}
 	@FXML

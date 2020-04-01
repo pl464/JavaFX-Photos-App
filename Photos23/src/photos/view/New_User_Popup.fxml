@@ -13,7 +13,7 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="username" layoutX="122.0" layoutY="96.0" prefHeight="39.0" prefWidth="228.0" />
+      <TextField fx:id="username" layoutX="122.0" layoutY="96.0" prefHeight="39.0" prefWidth="228.0" onKeyPressed="#keyPressed"/>
       <Label layoutX="29.0" layoutY="102.0" text="Username" />
       <Button fx:id="cancelButton" layoutX="296.0" layoutY="177.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="39.0" prefWidth="78.0" text="Cancel" />
       <Button fx:id="okButton" layoutX="224.0" layoutY="177.0" mnemonicParsing="false" onAction="#addUser" prefHeight="39.0" prefWidth="65.0" text="OK" />

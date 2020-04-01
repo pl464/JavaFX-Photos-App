@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.NewTagController">
+   <children>
+      <Label layoutX="23.0" layoutY="22.0" text="New Tag">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tagname" layoutX="127.0" layoutY="96.0" onKeyPressed="#keyPressed"/>
+      <Label layoutX="33.0" layoutY="102.0" text="Tag Name" />
+      <Button fx:id="cancelButton" layoutX="296.0" layoutY="177.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="39.0" prefWidth="78.0" text="Cancel" />
+      <Button fx:id="okButton" layoutX="224.0" layoutY="177.0" mnemonicParsing="false" onAction="#addTag" prefHeight="39.0" prefWidth="65.0" text="OK" />
+   </children>
+</AnchorPane>
