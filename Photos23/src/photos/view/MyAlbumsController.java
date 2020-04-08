@@ -20,7 +20,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AlbumsController extends Controller{
+public class MyAlbumsController extends Controller{
 	@FXML private Button logoutButton;
 	@FXML private Button searchButton;
 	@FXML private Button newTagButton;

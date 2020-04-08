@@ -9,7 +9,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class NewTagController {
-	AlbumsController albumsController; //the calling controller 
+	MyAlbumsController myAlbumsController; //the calling controller 
 	
 	@FXML
 	private TextField tagname;
@@ -18,13 +18,13 @@ public class NewTagController {
 	@FXML
 	private Button cancelButton;
 	
-	public void setParentController(AlbumsController albumsController) {
-		this.albumsController = albumsController;
+	public void setParentController(MyAlbumsController albumsController) {
+		this.myAlbumsController = albumsController;
 		return;
 	}
 	@FXML
 	private void addTag(ActionEvent e) throws Exception {
-		albumsController.addTag(tagname.getText());
+		myAlbumsController.addTag(tagname.getText());
 		cancelButton.fire();
 	}
 	@FXML

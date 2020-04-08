@@ -45,8 +45,8 @@ public class SceneManager {
 	    		loginController.setUsers(readUsers());
 	    		break;
     		
-	    	case "Albums_Window.fxml":
-	    		AlbumsController albumController = loader.getController();
+	    	case "My_Albums_Window.fxml":
+	    		MyAlbumsController albumController = loader.getController();
 	    		albumController.setSceneManager(this);
 	    		albumController.displayAlbums();
 	    		break;
@@ -84,17 +84,17 @@ public class SceneManager {
 				break;
 			case "New_Tag_Popup.fxml":
 				NewTagController newTagController = loader.getController();
-				newTagController.setParentController((AlbumsController)controller);
+				newTagController.setParentController((MyAlbumsController)controller);
 				title = "Add Tag";
 				break;
 			case "New_Album_Popup.fxml":
 				NewAlbumController newAlbumController = loader.getController();
-				newAlbumController.setParentController((AlbumsController)controller);
+				newAlbumController.setParentController((MyAlbumsController)controller);
 				title = "Add Album";
 				break;
 			case "Rename_Album_Popup.fxml":
 				RenameAlbumController renameAlbumController = loader.getController();
-				renameAlbumController.setParentController((AlbumsController)controller);
+				renameAlbumController.setParentController((MyAlbumsController)controller);
 				title = "Rename Album";
 				break;
 		}

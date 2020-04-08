@@ -9,7 +9,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class NewAlbumController {
-	AlbumsController albumsController;
+	MyAlbumsController myAlbumsController;
 	
 	@FXML
 	private TextField albumName;
@@ -18,14 +18,14 @@ public class NewAlbumController {
 	@FXML
 	private Button cancelButton;
 	
-	public void setParentController(AlbumsController albumsController) {
-		this.albumsController = albumsController;
+	public void setParentController(MyAlbumsController albumsController) {
+		this.myAlbumsController = albumsController;
 		return;
 	}
 	
 	@FXML
 	private void addAlbum(ActionEvent e) throws Exception {
-		albumsController.addAlbum(albumName.getText());
+		myAlbumsController.addAlbum(albumName.getText());
 		cancelButton.fire();
 	}
 	@FXML

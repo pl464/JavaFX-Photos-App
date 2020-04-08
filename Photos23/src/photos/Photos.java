@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import photos.view.Controller;
 import photos.view.LoginController;
 import photos.view.SceneManager;
 

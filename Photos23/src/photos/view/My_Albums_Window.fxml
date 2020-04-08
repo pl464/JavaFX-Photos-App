@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.AlbumsController">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.MyAlbumsController">
    <children>
       <Label layoutX="26.0" layoutY="22.0" text="Your Albums">
          <font>
