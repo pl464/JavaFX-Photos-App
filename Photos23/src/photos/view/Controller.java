@@ -12,9 +12,10 @@ import photos.User;
  *
  */
 public abstract class Controller {
-	SceneManager sceneManager;
+	SceneManager sceneManager; //can this be public static?
 	public static HashMap<String, User> users;
 	public static User currUser;
+	public static String currAlbum;
 	
 	public void setSceneManager(SceneManager sceneManager) {
 		this.sceneManager = sceneManager;
@@ -31,5 +32,9 @@ public abstract class Controller {
 	
 	public void setCurrUser (User user) {
 		currUser = user;
+	}
+	
+	public void setCurrAlbum (String albumName) {
+		currAlbum = albumName;
 	}
 }

@@ -33,7 +33,7 @@ public class SceneManager {
      * @throws Exception
      */
     public void switchScene(String fxml, HashMap<String, User> users) throws Exception {
-    	writeUsers(users); //update user data each time the main scene changes
+    	//writeUsers(users); //update user data each time the main scene changes
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource(fxml));
 		pane = (AnchorPane)loader.load();
@@ -57,6 +57,10 @@ public class SceneManager {
 	    		adminController.setUsers(readUsers());
 	    		adminController.displayUsers(readUsers());
 	    		break;
+	    		
+	    	case "Album_Display_Window.fxml":
+	    		AlbumDisplayController albumDisplayController = loader.getController();
+	    		albumDisplayController.setSceneManager(this);
     	}
     	Scene scene = new Scene(pane);
 		mainStage.setResizable(false);

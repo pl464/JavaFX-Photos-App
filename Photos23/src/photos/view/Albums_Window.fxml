@@ -25,7 +25,7 @@
       <Button fx:id="searchButton" layoutX="36.0" layoutY="84.0" mnemonicParsing="false" onAction="#searchAlbums" text="Search Albums" />
       <Button fx:id="deleteButton" layoutX="120.0" layoutY="636.0" mnemonicParsing="false" onAction="#removeAlbum" text="Delete" />
       <Button fx:id="renameButton" layoutX="207.0" layoutY="636.0" mnemonicParsing="false" onAction="#showRenameAlbumPopup" text="Rename" />
-      <Button fx:id="openButton" defaultButton="true" layoutX="498.0" layoutY="636.0" mnemonicParsing="false" text="Open" />
+      <Button fx:id="openButton" defaultButton="true" layoutX="498.0" layoutY="636.0" mnemonicParsing="false" onAction="#openAlbum" text="Open" />
       <Button fx:id="newTagButton" layoutX="191.0" layoutY="84.0" mnemonicParsing="false" onAction="#showNewTagPopup" text="New Tag" />
    </children>
 </AnchorPane>

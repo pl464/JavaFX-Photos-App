@@ -120,7 +120,14 @@ public class AlbumsController extends Controller{
 		currUser.tagnames.forEach((tag)->System.out.println(tag));
 		currUser.albums.forEach((k,v)->System.out.println(k));
 	}
-	
+
+	@FXML 
+	private void openAlbum(ActionEvent e) throws Exception{
+		selectionModel = albumTable.getSelectionModel();
+		Album album = selectionModel.getSelectedItem();
+		setCurrAlbum(album.name);
+		sceneManager.switchScene("Album_Display_Window.fxml", users);
+	}
 	@FXML
 	private void logout(ActionEvent e) throws Exception {
 		sceneManager.switchScene("Login_Window.fxml", users);
