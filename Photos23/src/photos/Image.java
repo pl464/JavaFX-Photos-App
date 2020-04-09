@@ -2,8 +2,9 @@ package photos;
 
 import java.io.File;
 import java.io.Serializable;
+import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -11,14 +12,14 @@ public class Image implements Serializable {
 
 	static final long serialVersionUID = 1L;
 	
-	String caption;
-	LocalDateTime date;
-	HashMap<String, ArrayList<String>> tags;
+	public String caption;
+	public LocalDateTime date;
+	public HashMap<String, ArrayList<String>> tags;
 	
-	public Image(String path) {
+	public Image(File file) {
 		
 		caption = "";
-		date = LocalDateTime.ofEpochSecond((new File(path)).lastModified(), 0, ZoneOffset.UTC);
+		date = LocalDateTime.ofInstant(Instant.ofEpochMilli(file.lastModified()), ZoneId.systemDefault());
 		tags = new HashMap<String, ArrayList<String>>();
 	}
 }
