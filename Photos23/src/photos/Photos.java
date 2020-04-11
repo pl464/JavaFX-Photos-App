@@ -40,7 +40,7 @@ public class Photos extends Application {
 	@Override
 	public void stop() throws Exception {
 		System.out.println("Application stopped");
-		//sceneManager.writeUsers(Controller.users);
+		sceneManager.writeUsers(Controller.users);
 	}
 	
 	public static void main(String[] args) {
