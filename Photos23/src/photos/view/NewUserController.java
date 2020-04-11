@@ -1,8 +1,10 @@
 package photos.view;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -23,7 +25,12 @@ public class NewUserController {
 	}
 	@FXML
 	private void addUser(ActionEvent e) throws Exception {
-		adminController.addUser(username.getText());
+		if (adminController.addUser(username.getText()) == false) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("User by that name already exists.");
+			alert.showAndWait();
+			return;
+		}
 		cancelButton.fire();
 	}
 	@FXML
