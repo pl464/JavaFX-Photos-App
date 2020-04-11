@@ -72,15 +72,23 @@ public class MyAlbumsController extends Controller{
 		currUser.tagnames.add(tag);
 	}
 	
-	public void addAlbum(String albumName) {
+	public boolean addAlbum(String albumName) {
+		if (currUser.albums.keySet().contains(albumName)) {
+			return false;
+		}
 		currUser.albums.put(albumName, new ArrayList<String>());
 		//create a new Album for displaying purposes only
 		Album newAlbum = new Album(albumName, 0, "No photos");
 		data.add(newAlbum);
+		Collections.sort(data, new NameComp());
 		albumTable.setItems(data);
+		return true;
 	}
 	
-	public void renameAlbum(String newAlbumName) {
+	public boolean renameAlbum(String newAlbumName) {
+		if (currUser.albums.keySet().contains(newAlbumName)) {
+			return false;
+		}
 		selectionModel = albumTable.getSelectionModel();
 		Album album = selectionModel.getSelectedItem();
 		//edit the TableView
@@ -94,6 +102,7 @@ public class MyAlbumsController extends Controller{
 		//display
 		Collections.sort(data, new NameComp());
 		albumTable.setItems(data);
+		return true;
 	}
 	
 	@FXML
@@ -101,6 +110,11 @@ public class MyAlbumsController extends Controller{
 		selectionModel = albumTable.getSelectionModel();
 		Album album = selectionModel.getSelectedItem();
 		if (album == null) {
+			return;
+		} else if (currUsername.equals("stock") && album.name.equals("stock")) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Cannot delete the stock album.");
+			alert.showAndWait();
 			return;
 		} else {
 			Alert alert = new Alert(AlertType.CONFIRMATION,

@@ -46,7 +46,7 @@ public class AdminController extends Controller{
 	}
 
 	public boolean addUser(String username) throws Exception {
-		if (userList.getItems().contains(username) || username.equals("admin")) {
+		if (users.keySet().contains(username) || username.equals("admin")) {
 			return false;
 		}
 		users.put(username, new User());

@@ -15,6 +15,7 @@ public abstract class Controller {
 	SceneManager sceneManager; //can this be public static?
 	public static HashMap<String, User> users;
 	public static User currUser;
+	public static String currUsername;
 	public static String currAlbum;
 	
 	public void setSceneManager(SceneManager sceneManager) {
@@ -32,6 +33,10 @@ public abstract class Controller {
 	
 	public void setCurrUser (User user) {
 		currUser = user;
+	}
+	
+	public void setCurrUsername (String username) {
+		currUsername = username;
 	}
 	
 	public void setCurrAlbum (String albumName) {
