@@ -33,7 +33,7 @@ public class SceneManager {
      * @throws Exception
      */
     public void switchScene(String fxml, HashMap<String, User> users) throws Exception {
-    	//writeUsers(users); //update user data each time the main scene changes
+    	writeUsers(users); //update user data each time the main scene changes
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource(fxml));
 		pane = (AnchorPane)loader.load();
@@ -61,6 +61,7 @@ public class SceneManager {
 	    	case "Album_Display_Window.fxml":
 	    		AlbumDisplayController albumDisplayController = loader.getController();
 	    		albumDisplayController.setSceneManager(this);
+	    		albumDisplayController.displayPhotos();
     	}
     	Scene scene = new Scene(pane);
 		mainStage.setResizable(false);
@@ -84,7 +85,11 @@ public class SceneManager {
 				break;
 			case "New_Tag_Popup.fxml":
 				NewTagController newTagController = loader.getController();
-				newTagController.setParentController((MyAlbumsController)controller);
+				if (controller.getClass().toString().equals("class photos.view.MyAlbumsController")) {
+					newTagController.setParentController((MyAlbumsController)controller);
+				} else {
+					newTagController.setParentController((AlbumDisplayController)controller);
+				}
 				title = "Add Tag";
 				break;
 			case "New_Album_Popup.fxml":
@@ -97,6 +102,13 @@ public class SceneManager {
 				renameAlbumController.setParentController((MyAlbumsController)controller);
 				title = "Rename Album";
 				break;
+			case "New_Photo_Popup.fxml":
+				NewPhotoController newPhotoController = loader.getController();
+				newPhotoController.setParentController((AlbumDisplayController)controller);
+				newPhotoController.setTags();
+				title = "Add Photo";
+				break;
+			
 		}
 		
 		Scene scene = new Scene(pane);

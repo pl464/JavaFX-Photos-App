@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Map;
 
-import photos.Image;
+import photos.Picture;
 
 public class SearchController extends Controller{
 	
 	public ArrayList<String> searchByDate(LocalDateTime start, LocalDateTime end, boolean single) {
 		
 		ArrayList<String> paths = new ArrayList<String>();
-		for (Map.Entry<String, Image> e : currUser.images.entrySet()) {
+		for (Map.Entry<String, Picture> e : currUser.pictures.entrySet()) {
 			if (single && !currUser.albums.get(currAlbum).contains(e.getKey())) {
 				continue;
 			}
@@ -25,7 +25,7 @@ public class SearchController extends Controller{
 	public ArrayList<String> searchByTag(String tag, String val, boolean single) {
 		
 		ArrayList<String> paths = new ArrayList<String>();
-		for (Map.Entry<String, Image> e : currUser.images.entrySet()) {
+		for (Map.Entry<String, Picture> e : currUser.pictures.entrySet()) {
 			if (single && !currUser.albums.get(currAlbum).contains(e.getKey())) {
 				continue;
 			}
@@ -39,7 +39,7 @@ public class SearchController extends Controller{
 	public ArrayList<String> searchByAnd(String tag1, String val1, String tag2, String val2, boolean single) {
 		
 		ArrayList<String> paths = new ArrayList<String>();
-		for (Map.Entry<String, Image> e : currUser.images.entrySet()) {
+		for (Map.Entry<String, Picture> e : currUser.pictures.entrySet()) {
 			if (single && !currUser.albums.get(currAlbum).contains(e.getKey())) {
 				continue;
 			}
@@ -53,7 +53,7 @@ public class SearchController extends Controller{
 	public ArrayList<String> searchByOr(String tag1, String val1, String tag2, String val2, boolean single) {
 		
 		ArrayList<String> paths = new ArrayList<String>();
-		for (Map.Entry<String, Image> e : currUser.images.entrySet()) {
+		for (Map.Entry<String, Picture> e : currUser.pictures.entrySet()) {
 			if (single && !currUser.albums.get(currAlbum).contains(e.getKey())) {
 				continue;
 			}

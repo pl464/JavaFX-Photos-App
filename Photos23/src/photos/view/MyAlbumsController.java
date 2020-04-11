@@ -44,15 +44,24 @@ public class MyAlbumsController extends Controller{
 		//for each album, create a new Album to show in the TableView
 		currUser.albums.forEach((albumName,photoList)->{
 			Integer numPhotos = photoList.size();
-			LocalDateTime LDT1 = LocalDateTime.now();  
-			LocalDateTime LDT2 = LocalDateTime.now();
-		    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
-		    
-		    String date1 = LDT1.format(format); 
-		    String date2 = LDT2.format(format);
-		    String dateRange = date1 + " - " + date2;
-
-			//date = LocalDateTime.ofEpochSecond((new File(path)).lastModified(), 0, ZoneOffset.UTC);
+			String dateRange = "";
+			//get date range
+			if (numPhotos != 0) {
+				LocalDateTime leastDate = currUser.pictures.get(photoList.get(0)).date;
+				LocalDateTime greatestDate = currUser.pictures.get(photoList.get(0)).date;
+			    for (String s : photoList) {
+			    	LocalDateTime date = currUser.pictures.get(s).date;
+			    	if (date.compareTo(leastDate) < 0) {
+			    		leastDate = date;
+			    	} else if (date.compareTo(greatestDate) > 0) {
+			    		greatestDate = date;
+			    	}
+			    }
+			    DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+			    String date1 = leastDate.format(format);
+			    String date2 = greatestDate.format(format);
+			    dateRange = date1 + " - " + date2;
+			}
 			Album album = new Album(albumName, numPhotos, dateRange);
 			data.add(album);
 		});
@@ -125,6 +134,7 @@ public class MyAlbumsController extends Controller{
 	private void openAlbum(ActionEvent e) throws Exception{
 		selectionModel = albumTable.getSelectionModel();
 		Album album = selectionModel.getSelectedItem();
+		if (album == null) return;
 		setCurrAlbum(album.name);
 		sceneManager.switchScene("Album_Display_Window.fxml", users);
 	}
