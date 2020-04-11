@@ -44,7 +44,7 @@ public class MyAlbumsController extends Controller{
 		//for each album, create a new Album to show in the TableView
 		currUser.albums.forEach((albumName,photoList)->{
 			Integer numPhotos = photoList.size();
-			String dateRange = "";
+			String dateRange = "No photos";
 			//get date range
 			if (numPhotos != 0) {
 				LocalDateTime leastDate = currUser.pictures.get(photoList.get(0)).date;
@@ -110,11 +110,6 @@ public class MyAlbumsController extends Controller{
 		selectionModel = albumTable.getSelectionModel();
 		Album album = selectionModel.getSelectedItem();
 		if (album == null) {
-			return;
-		} else if (currUsername.equals("stock") && album.name.equals("stock")) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setContentText("Cannot delete the stock album.");
-			alert.showAndWait();
 			return;
 		} else {
 			Alert alert = new Alert(AlertType.CONFIRMATION,

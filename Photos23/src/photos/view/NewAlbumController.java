@@ -27,7 +27,13 @@ public class NewAlbumController {
 	
 	@FXML
 	private void addAlbum(ActionEvent e) throws Exception {
-		if (myAlbumsController.addAlbum(albumName.getText()) == false) {
+		if (albumName.getText().isBlank()) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Album name cannot be blank.");
+			alert.showAndWait();
+			return;
+		}
+		if (myAlbumsController.addAlbum(albumName.getText().trim()) == false) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setContentText("Album by that name already exists.");
 			alert.showAndWait();

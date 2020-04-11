@@ -1,5 +1,6 @@
 package photos.view;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -67,31 +68,22 @@ public class AlbumDisplayController extends Controller {
 		previews.getChildren().add(preview);
 	}
 	
-	public void addNewPhoto(Picture newPicture, String filePath) {
-		//first, add to the current user's album, if it dodesn't exist already
-		currUser.albums.get(currAlbum).forEach((p)->{
-			if (p.equals(filePath)) {
-				Alert alert = new Alert(AlertType.ERROR, 
-						"Error: This picture is already in the album!", ButtonType.OK);
-				alert.showAndWait();
-				return;
-			}
-		});
-		currUser.albums.get(currAlbum).add(filePath);
-		Image image = new Image(filePath, 166, 166, false ,false); 
+	public boolean addNewPhoto(File file) {
+		//first, add to the current user's album, if it doesn't exist already
+		if (currUser.albums.get(currAlbum).contains(file.toURI().toString())) {
+			return false;
+		}
+		currUser.albums.get(currAlbum).add(file.toURI().toString());
+		Image image = new Image(file.toURI().toString(), 166, 166, false ,false); 
 		ImageView newImage = new ImageView(image);
-		
-		String cap = newPicture.caption;
-		displayPhoto(cap, newImage, filePath);
+		displayPhoto("", newImage, file.toURI().toString());
 				
 		//then, add to the current user's pictures if it doesn't exist already
-		if (currUser.pictures == null) currUser.pictures = new HashMap<>();
-		currUser.pictures.forEach((k,v)->{
-			if (k.equals(filePath)) {
-				return;
-			}
-		});
-		currUser.pictures.put(filePath, newPicture);
+		if (currUser.pictures.keySet().contains(file.toURI().toString())) {
+			return true;
+		}
+		currUser.pictures.put(file.toURI().toString(), new Picture(file));
+		return true;
 	}
 	
 	public void searchAlbum() {
@@ -103,6 +95,9 @@ public class AlbumDisplayController extends Controller {
 	
 	@FXML
 	private void removePhoto(ActionEvent e) {
+		if (selected == null) {
+			return;
+		}
 		Alert alert = new Alert(AlertType.CONFIRMATION,
 				"Are you sure you want to delete the selected photo?", 
 				ButtonType.YES, ButtonType.NO);
@@ -111,6 +106,7 @@ public class AlbumDisplayController extends Controller {
 		
 		currUser.albums.get(currAlbum).remove(selected.getUserData());
 		displayPhotos();
+		selected = null;
 	}
 	@FXML
 	private void goBack(ActionEvent e) throws Exception {

@@ -25,24 +25,25 @@ public class NewPhotoController {
 
 	@FXML private Button browseButton;
 	@FXML private TextField filePath;
-	@FXML private TextField captionText;
-	@FXML private MenuButton tagMenu;
-	@FXML private TextField tagValue;
-	@FXML private Button insertTagButton;
-	@FXML private ListView<String> tagDisplay;
+	//@FXML private TextField captionText;
+	//@FXML private MenuButton tagMenu;
+	//@FXML private TextField tagValue;
+	//@FXML private Button insertTagButton;
+	//@FXML private ListView<String> tagDisplay;
 	@FXML private Button okButton;
 	@FXML private Button cancelButton;
 	
 	AlbumDisplayController albumDisplayController;
 	File currPicture;
-	String currTag;
-	HashMap<String, ArrayList<String>> tags = new HashMap<>();
+	//String currTag;
+	//HashMap<String, ArrayList<String>> tags = new HashMap<>();
 	
 	public void setParentController(AlbumDisplayController albumDisplayController) {
 		this.albumDisplayController = albumDisplayController;
+		this.filePath.setEditable(false);
 		return;
 	}
-	
+/*	
 	public void setTags() {
 		ArrayList<String> tagnames = Controller.currUser.tagnames;
 		tagnames.forEach((tag)->{
@@ -55,6 +56,7 @@ public class NewPhotoController {
 			tagMenu.getItems().add(item);
 		});
 	}
+*/
 	
 	@FXML
 	private void chooseFile(ActionEvent e) throws MalformedURLException {
@@ -70,23 +72,21 @@ public class NewPhotoController {
 	
 	@FXML
 	private void createPicture(ActionEvent e) {
-		String filePath = currPicture.toURI().toString();
-		//System.out.println(filePath);
-		Picture newPicture = new Picture(currPicture);
-		newPicture.caption = captionText.getText();
-		
-		//System.out.println("caption = " + newPicture.caption);
-		//DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"); 
-		//System.out.println("date = " + newPicture.date.format(format));
-		newPicture.tags = tags;
-		tags.forEach((tagName, tagValue)->{
-			System.out.println(tagName + ": " + tagValue);
-		});
-		
-		albumDisplayController.addNewPhoto(newPicture, filePath);
+		if (currPicture == null) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Please choose a file.");
+			alert.showAndWait();
+			return;
+		}
+		if (albumDisplayController.addNewPhoto(currPicture) == false) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Error: This picture is already in the album!");
+			alert.showAndWait();
+			return;
+		}
 		cancelButton.fire();
 	}
-	
+/*
 	@FXML
 	private void addTag(ActionEvent e) {
 		//just adds the tag to the listview, not to the underlying Picture
@@ -118,13 +118,15 @@ public class NewPhotoController {
 		tagDisplay.getItems().add(tagInfo);
 		tagValue.setText("");
 	}
-	
+*/
+/*
 	@FXML
 	private void setFieldEmpty(MouseEvent e) {
 		if (tagValue.getText().equals("Tag_Value")) {
 			tagValue.setText("");
 		}
 	}
+*/
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();

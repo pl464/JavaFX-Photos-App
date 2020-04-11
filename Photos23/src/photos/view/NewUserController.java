@@ -25,7 +25,13 @@ public class NewUserController {
 	}
 	@FXML
 	private void addUser(ActionEvent e) throws Exception {
-		if (adminController.addUser(username.getText()) == false) {
+		if (username.getText().isBlank()) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Username cannot be blank.");
+			alert.showAndWait();
+			return;
+		}
+		if (adminController.addUser(username.getText().trim()) == false) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setContentText("User by that name already exists.");
 			alert.showAndWait();
