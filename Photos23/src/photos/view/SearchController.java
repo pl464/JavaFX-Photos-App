@@ -43,7 +43,7 @@ public class SearchController extends Controller{
 			if (single && !currUser.albums.get(currAlbum).contains(e.getKey())) {
 				continue;
 			}
-			if (e.getValue().tags.containsKey(tag1) && e.getValue().tags.get(tag1).contains(val1) && e.getValue().tags.containsKey(tag2) && e.getValue().tags.get(tag2).contains(val2)) {
+			if ((e.getValue().tags.containsKey(tag1) && e.getValue().tags.get(tag1).contains(val1)) && (e.getValue().tags.containsKey(tag2) && e.getValue().tags.get(tag2).contains(val2))) {
 				paths.add(e.getKey());
 			}
 		}

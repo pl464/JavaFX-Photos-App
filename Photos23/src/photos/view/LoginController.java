@@ -23,7 +23,6 @@ public class LoginController extends Controller{
 		}
 		if (users.containsKey(username.getText())) {
 			setCurrUser(users.get(username.getText()));
-			setCurrUsername(username.getText());
 			sceneManager.switchScene("My_Albums_Window.fxml", users);
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);
