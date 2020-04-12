@@ -15,17 +15,17 @@
       </Label>
       <TableView fx:id="albumTable" layoutX="36.0" layoutY="138.0" prefHeight="470.0" prefWidth="528.0">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="185.0" text="Name" />
+          <TableColumn fx:id="nameColumn" prefWidth="184.0" text="Name" />
           <TableColumn fx:id="numPhotosColumn" prefWidth="110.0" text="# of Photos" />
-            <TableColumn fx:id="dateRangeColumn" prefWidth="232.0" text="Date Range" />
+          <TableColumn fx:id="dateRangeColumn" prefWidth="232.0" text="Date Range" />
         </columns>
       </TableView>
-      <Button fx:id="logoutButton" layoutX="487.0" layoutY="21.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
-      <Button fx:id="createButton" layoutX="34.0" layoutY="636.0" mnemonicParsing="false" onAction="#showNewAlbumPopup" text="Create" />
-      <Button fx:id="searchButton" layoutX="36.0" layoutY="84.0" mnemonicParsing="false" onAction="#searchAlbums" text="Search Albums" />
-      <Button fx:id="deleteButton" layoutX="120.0" layoutY="636.0" mnemonicParsing="false" onAction="#removeAlbum" text="Delete" />
-      <Button fx:id="renameButton" layoutX="207.0" layoutY="636.0" mnemonicParsing="false" onAction="#showRenameAlbumPopup" text="Rename" />
-      <Button fx:id="openButton" defaultButton="true" layoutX="498.0" layoutY="636.0" mnemonicParsing="false" onAction="#openAlbum" text="Open" />
-      <Button fx:id="newTagButton" layoutX="191.0" layoutY="84.0" mnemonicParsing="false" onAction="#showNewTagPopup" text="New Tag" />
+      <Button fx:id="logoutButton" layoutX="508.0" layoutY="21.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <Button fx:id="createButton" layoutX="36.0" layoutY="636.0" mnemonicParsing="false" onAction="#showNewAlbumPopup" text="Create" />
+      <Button fx:id="searchButton" layoutX="108.0" layoutY="84.0" mnemonicParsing="false" onAction="#searchAlbums" text="Search Albums" />
+      <Button fx:id="deleteButton" layoutX="164.0" layoutY="636.0" mnemonicParsing="false" onAction="#removeAlbum" text="Delete" />
+      <Button fx:id="renameButton" layoutX="96.0" layoutY="636.0" mnemonicParsing="false" onAction="#showRenameAlbumPopup" text="Rename" />
+      <Button fx:id="openButton" layoutX="518.0" layoutY="636.0" mnemonicParsing="false" onAction="#openAlbum" text="Open" />
+      <Button fx:id="newTagButton" layoutX="36.0" layoutY="84.0" mnemonicParsing="false" onAction="#showNewTagPopup" text="New Tag" />
    </children>
 </AnchorPane>

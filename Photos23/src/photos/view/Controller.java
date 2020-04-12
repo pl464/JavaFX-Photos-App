@@ -12,8 +12,8 @@ import photos.User;
  *
  */
 public abstract class Controller {
-	SceneManager sceneManager; //can this be public static? should these be private?
-	public static HashMap<String, User> users; 
+	SceneManager sceneManager; //can this be public static?
+	public static HashMap<String, User> users;
 	public static User currUser;
 	public static String currAlbum;
 	public static boolean albumScope; //true if searching at the album level, false if searching all albums

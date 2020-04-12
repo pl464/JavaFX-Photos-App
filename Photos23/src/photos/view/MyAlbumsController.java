@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -130,6 +131,11 @@ public class MyAlbumsController extends Controller{
 		sceneManager.openScene("New_Album_Popup.fxml", this);
 	}
 	@FXML private void showRenameAlbumPopup(ActionEvent e) throws Exception {
+		selectionModel = albumTable.getSelectionModel();
+		Album album = selectionModel.getSelectedItem();
+		if (album == null) {
+			return;
+		}
 		sceneManager.openScene("Rename_Album_Popup.fxml", this);
 	}
 	

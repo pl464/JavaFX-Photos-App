@@ -13,9 +13,9 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="tagname" layoutX="127.0" layoutY="96.0" onKeyPressed="#keyPressed"/>
-      <Label layoutX="33.0" layoutY="102.0" text="Tag Name" />
-      <Button fx:id="cancelButton" layoutX="296.0" layoutY="177.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="39.0" prefWidth="78.0" text="Cancel" />
-      <Button fx:id="okButton" layoutX="224.0" layoutY="177.0" mnemonicParsing="false" onAction="#addTag" prefHeight="39.0" prefWidth="65.0" text="OK" />
+      <TextField fx:id="tagname" layoutX="127.0" layoutY="110.0" onKeyPressed="#keyPressed"/>
+      <Label layoutX="60.0" layoutY="114.0" text="Tag Name" />
+      <Button fx:id="cancelButton" layoutX="296.0" layoutY="177.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="39.0" prefWidth="79.0" text="Cancel" />
+      <Button fx:id="okButton" layoutX="220.0" layoutY="177.0" mnemonicParsing="false" onAction="#addTag" prefHeight="39.0" prefWidth="65.0" text="OK" />
    </children>
 </AnchorPane>

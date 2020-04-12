@@ -9,22 +9,22 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.AlbumDisplayController">
    <children>
-      <Label fx:id="albumName" layoutX="34.0" layoutY="20.0" text="Album_Name">
+      <Label fx:id="albumName" layoutX="26.0" layoutY="22.0" text="Album_Name">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="logoutButton" layoutX="478.0" layoutY="27.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
-      <Button fx:id="addPhotoButton" layoutX="24.0" layoutY="640.0" mnemonicParsing="false" onAction="#showNewPhotoPopup" prefHeight="39.0" prefWidth="87.0" text="Add" />
-      <Button fx:id="searchButton" layoutX="34.0" layoutY="73.0" mnemonicParsing="false" onAction="#searchAlbum" text="Search Album" />
-      <Button fx:id="removeButton" layoutX="121.0" layoutY="640.0" mnemonicParsing="false" onAction="#removePhoto" prefHeight="39.0" prefWidth="95.0" text="Remove" />
-      <Button fx:id="viewButton" defaultButton="true" layoutX="488.0" layoutY="640.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="81.0" text="View" />
-      <Button fx:id="newTagButton" layoutX="189.0" layoutY="73.0" mnemonicParsing="false" onAction="#showNewTagPopup" text="New Tag" />
-      <ScrollPane layoutX="24.0" layoutY="133.0" prefHeight="496.0" prefWidth="560.0">
+      <Button fx:id="logoutButton" layoutX="508.0" layoutY="21.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <Button fx:id="addPhotoButton" layoutX="36.0" layoutY="636.0" mnemonicParsing="false" onAction="#showNewPhotoPopup" text="Add" />
+      <Button fx:id="searchButton" layoutX="108.0" layoutY="84.0" mnemonicParsing="false" onAction="#searchAlbum" text="Search Album" />
+      <Button fx:id="removeButton" layoutX="84.0" layoutY="636.0" mnemonicParsing="false" onAction="#removePhoto" text="Remove" />
+      <Button fx:id="viewButton" layoutX="520.0" layoutY="636.0" mnemonicParsing="false" onAction="#openPhoto" text="View" />
+      <Button fx:id="newTagButton" layoutX="36.0" layoutY="84.0" mnemonicParsing="false" onAction="#showNewTagPopup" text="New Tag" />
+      <ScrollPane layoutX="36.0" layoutY="138.0" prefHeight="470.0" prefWidth="528.0">
          <content>
-            <FlowPane fx:id="previews" hgap="20.0" prefHeight="493.0" prefWidth="557.0" vgap="20.0" />
+            <FlowPane fx:id="previews" hgap="20.0" prefHeight="468.0" prefWidth="526.0" vgap="20.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="backButton" layoutX="403.0" layoutY="27.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <Button fx:id="backButton" layoutX="458.0" layoutY="21.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
    </children>
 </AnchorPane>

@@ -61,7 +61,7 @@ public class NewPhotoController {
 	@FXML
 	private void chooseFile(ActionEvent e) throws MalformedURLException {
 		FileChooser fileChooser = new FileChooser();
-		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg, *.png)", "*.jpg", "*.png");
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg, *.png)", "*.jpg", ".png");
 		fileChooser.getExtensionFilters().add(extFilter);
 		File file = fileChooser.showOpenDialog(browseButton.getScene().getWindow());
 		if (file == null) return;

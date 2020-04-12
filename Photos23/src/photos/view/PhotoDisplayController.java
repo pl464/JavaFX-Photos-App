@@ -22,7 +22,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import photos.Picture;
 
-public class AlbumDisplayController extends Controller {
+public class PhotoDisplayController extends Controller {
+	/*
 	@FXML private Label albumName;
 	@FXML private Button backButton;
 	@FXML private Button logoutButton;
@@ -42,7 +43,7 @@ public class AlbumDisplayController extends Controller {
 			viewButton.requestFocus();
 		});
 		currUser.albums.get(currAlbum).forEach((k)->{
-			Image image = new Image(k, 112, 0, true, false);
+			Image image = new Image(k, 120, 0, true, false);
 			ImageView newImage = new ImageView(image);
 			
 			String cap = currUser.pictures.get(k).caption;
@@ -74,7 +75,7 @@ public class AlbumDisplayController extends Controller {
 			return false;
 		}
 		currUser.albums.get(currAlbum).add(file.toURI().toString());
-		Image image = new Image(file.toURI().toString(), 112, 0, true, false);
+		Image image = new Image(file.toURI().toString(), 166, 166, false ,false); 
 		ImageView newImage = new ImageView(image);
 		displayPhoto("", newImage, file.toURI().toString());
 				
@@ -86,9 +87,7 @@ public class AlbumDisplayController extends Controller {
 		return true;
 	}
 	
-	public void searchAlbum() throws Exception {
-		setAlbumScope(true);
-		sceneManager.switchScene("Search_Window.fxml", users);
+	public void searchAlbum() {
 	}
 	
 	public void addTag(String tag) {
@@ -110,7 +109,6 @@ public class AlbumDisplayController extends Controller {
 		displayPhotos();
 		selected = null;
 	}
-	
 	@FXML
 	private void goBack(ActionEvent e) throws Exception {
 		sceneManager.switchScene("My_Albums_Window.fxml", users);
@@ -121,18 +119,12 @@ public class AlbumDisplayController extends Controller {
 		sceneManager.openScene("New_Photo_Popup.fxml", this);
 	}
 
-	@FXML
-	private void showNewTagPopup(ActionEvent e) throws Exception {
+	@FXML private void showNewTagPopup(ActionEvent e) throws Exception {
 		sceneManager.openScene("New_Tag_Popup.fxml", this);
 	}
-	
 	@FXML
 	private void logout(ActionEvent e) throws Exception {
 		sceneManager.switchScene("Login_Window.fxml", users);
 	}
-	
-	@FXML
-	private void openPhoto(ActionEvent e) throws Exception {
-		sceneManager.switchScene("Photo_Display_Window.fxml", users);
-	}
+	*/
 }
