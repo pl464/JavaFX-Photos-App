@@ -62,10 +62,17 @@ public class SceneManager {
 	    		AlbumDisplayController albumDisplayController = loader.getController();
 	    		albumDisplayController.setSceneManager(this);
 	    		albumDisplayController.displayPhotos();
+	    		break;
+	    		
+	    	case "Search_Window.fxml":
+	    		SearchController searchController = loader.getController();
+	    		searchController.setSceneManager(this);
+	    		searchController.setTags();
+	    		break;
     	}
     	Scene scene = new Scene(pane);
 		mainStage.setResizable(false);
-        mainStage.setTitle("Login");
+        //mainStage.setTitle("Login");
 		mainStage.setScene(scene);
 		mainStage.show();
 		mainStage.centerOnScreen();

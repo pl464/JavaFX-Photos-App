@@ -30,7 +30,7 @@ public class Photos extends Application {
 		
 		Scene scene = new Scene(pane);
 		mainStage.setResizable(false);
-        mainStage.setTitle("Login");
+        mainStage.setTitle("Photo Library");
 		mainStage.setScene(scene);
 		mainStage.show();
 		mainStage.centerOnScreen();

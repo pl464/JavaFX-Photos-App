@@ -59,7 +59,7 @@ public class NewPhotoController {
 	@FXML
 	private void chooseFile(ActionEvent e) throws MalformedURLException {
 		FileChooser fileChooser = new FileChooser();
-		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg, *.png)", "*.jpg", ".png");
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg, *.png)", "*.jpg", "*.png");
 		fileChooser.getExtensionFilters().add(extFilter);
 		File file = fileChooser.showOpenDialog(browseButton.getScene().getWindow());
 		if (file == null) return;
@@ -71,18 +71,9 @@ public class NewPhotoController {
 	@FXML
 	private void createPicture(ActionEvent e) {
 		String filePath = currPicture.toURI().toString();
-		//System.out.println(filePath);
 		Picture newPicture = new Picture(currPicture);
 		newPicture.caption = captionText.getText();
-		
-		//System.out.println("caption = " + newPicture.caption);
-		//DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"); 
-		//System.out.println("date = " + newPicture.date.format(format));
 		newPicture.tags = tags;
-		tags.forEach((tagName, tagValue)->{
-			System.out.println(tagName + ": " + tagValue);
-		});
-		
 		albumDisplayController.addNewPhoto(newPicture, filePath);
 		cancelButton.fire();
 	}

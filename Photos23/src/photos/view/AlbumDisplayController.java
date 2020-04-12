@@ -36,6 +36,7 @@ public class AlbumDisplayController extends Controller {
 	public static Label selected; 
 	
 	public void displayPhotos() {
+		albumName.setText(currAlbum);
 		previews.getChildren().clear();
 		previews.setOnMouseClicked(e->{
 			viewButton.requestFocus();
@@ -94,7 +95,9 @@ public class AlbumDisplayController extends Controller {
 		currUser.pictures.put(filePath, newPicture);
 	}
 	
-	public void searchAlbum() {
+	public void searchAlbum() throws Exception {
+		setAlbumScope(true);
+		sceneManager.switchScene("Search_Window.fxml", users);
 	}
 	
 	public void addTag(String tag) {
@@ -108,7 +111,6 @@ public class AlbumDisplayController extends Controller {
 				ButtonType.YES, ButtonType.NO);
 		Optional<ButtonType> confirm = alert.showAndWait();
 		if (confirm.get() == ButtonType.NO) return; 
-		
 		currUser.albums.get(currAlbum).remove(selected.getUserData());
 		displayPhotos();
 	}
