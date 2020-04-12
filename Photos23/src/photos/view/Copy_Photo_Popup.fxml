@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.CopyPhotoController">
+   <children>
+      <Label layoutX="23.0" layoutY="22.0" text="Copy Photo">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="114.0" text="Copy to..." />
+      <Button fx:id="okButton" layoutX="220.0" layoutY="177.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="65.0" onAction="#copyPhoto" text="OK" />
+      <MenuButton fx:id="chooseButton" layoutX="130.0" layoutY="110.0" maxWidth="200.0" mnemonicParsing="false" prefWidth="200.0" text="Choose Album" />
+      <Button fx:id="cancelButton" layoutX="296.0" layoutY="177.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="79.0" onAction="#closePopup" text="Cancel" />
+   </children>
+</AnchorPane>

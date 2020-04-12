@@ -69,6 +69,12 @@ public class SceneManager {
 	    		searchController.setSceneManager(this);
 	    		searchController.setTags();
 	    		break;
+	    		
+	    	case "Photo_Display_Window.fxml":
+	    		PhotoDisplayController photoDisplayController = loader.getController();
+	    		photoDisplayController.setSceneManager(this);
+	    		photoDisplayController.displaySingle();
+	    		break;
     	}
     	Scene scene = new Scene(pane);
 		mainStage.setResizable(false);
@@ -114,7 +120,26 @@ public class SceneManager {
 				newPhotoController.setParentController((AlbumDisplayController)controller);
 				title = "Add Photo";
 				break;
-			
+			case "Edit_Caption_Popup.fxml":
+				EditCaptionController editCaptionController = loader.getController();
+				editCaptionController.setParentController((PhotoDisplayController)controller);
+				title = "Edit Caption";
+				break;
+			case "Edit_Tags_Popup.fxml":
+				EditTagsController editTagsController = loader.getController();
+				editTagsController.setParentController((PhotoDisplayController)controller);
+				title = "Edit Tags";
+				break;
+			case "Copy_Photo_Popup.fxml":
+				CopyPhotoController copyPhotoController = loader.getController();
+				copyPhotoController.setParentController((PhotoDisplayController)controller);
+				title = "Copy Photo";
+				break;
+			case "Move_Photo_Popup.fxml":
+				MovePhotoController movePhotoController = loader.getController();
+				movePhotoController.setParentController((PhotoDisplayController)controller);
+				title = "Move Photo";
+				break;
 		}
 		
 		Scene scene = new Scene(pane);

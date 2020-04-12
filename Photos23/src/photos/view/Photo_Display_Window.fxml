@@ -9,45 +9,33 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.PhotoDisplayController">
    <children>
-      <ImageView fitHeight="478.0" fitWidth="481.0" layoutX="62.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="photo" fitHeight="478.0" fitWidth="481.0" layoutX="62.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Documents/tom-nook-moneyjpg.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="554.0" layoutY="297.0" mnemonicParsing="false" text="-&gt;" />
-      <Button layoutX="16.0" layoutY="297.0" mnemonicParsing="false" text="&lt;-" />
-      <Button layoutX="508.0" layoutY="21.0" mnemonicParsing="false" text="Logout" />
-      <Button layoutX="458.0" layoutY="21.0" mnemonicParsing="false" text="Back" />
-      <Button layoutX="33.0" layoutY="544.0" mnemonicParsing="false" text="Edit"/>
-      <Label layoutX="75.0" layoutY="548.0" text="Full Caption">
+      <Button fx:id="previousButton" layoutX="554.0" layoutY="297.0" mnemonicParsing="false" onAction="#displayPrevious" text="-&gt;" />
+      <Button fx:id="nextButton" layoutX="16.0" layoutY="297.0" mnemonicParsing="false" onAction="#displayNext" text="&lt;-" />
+      <Button fx:id="logoutButton" layoutX="508.0" layoutY="21.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <Button fx:id="backButton" layoutX="458.0" layoutY="21.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <Button fx:id="captionButton" layoutX="33.0" layoutY="544.0" mnemonicParsing="false" onAction="#showEditCaptionPopup" text="Edit"/>
+      <Label fx:id="photoCaption" layoutX="75.0" layoutY="548.0" text="Full Caption">
          <font>
             <Font name="System Italic" />
          </font>
       </Label>
-      <Button layoutX="33.0" layoutY="580.0" mnemonicParsing="false" text="Edit"/>
-      <Label layoutX="75.0" layoutY="584.0" text="Example Tag: Example Tag Value">
+      <Button fx:id="tagsButton" layoutX="33.0" layoutY="580.0" mnemonicParsing="false" onAction="#showEditTagsPopup" text="Edit"/>
+      <Label fx:id="photoTags" layoutX="75.0" layoutY="584.0" text="Example Tag: Example Tag Value">
          <font>
             <Font name="System Italic" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="34.0" text="Date: MM/DD/YYYY">
+      <Label fx:id="photoDate" layoutX="75.0" layoutY="34.0" text="Date: MM/DD/YYYY">
          <font>
             <Font name="System Italic" />
          </font>
       </Label>
-<!--
-      <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="36.0" layoutY="541.0">
-         <image>
-            <Image url="@../../../../../Pictures/edit.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="36.0" layoutY="582.0">
-         <image>
-            <Image url="@../../../../../Pictures/edit.png" />
-         </image>
-      </ImageView>
--->
-      <Button layoutX="246.0" layoutY="636.0" mnemonicParsing="false" text="Copy" />
-      <Button layoutX="300.0" layoutY="636.0" mnemonicParsing="false" text="Move" />
+      <Button fx:id="copyButton" layoutX="246.0" layoutY="636.0" mnemonicParsing="false" onAction="#showCopyPhotoPopup" text="Copy" />
+      <Button fx:id="moveButton" layoutX="300.0" layoutY="636.0" mnemonicParsing="false" onAction="#showMovePhotoPopup" text="Move" />
    </children>
 </AnchorPane>
