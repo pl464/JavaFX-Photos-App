@@ -45,10 +45,14 @@ public class AdminController extends Controller{
 		return;
 	}
 
-	public void addUser(String username) throws Exception {
+	public boolean addUser(String username) throws Exception {
+		if (users.keySet().contains(username) || username.equals("admin")) {
+			return false;
+		}
 		users.put(username, new User());
 		data.add(username);
 		userList.getItems().setAll(data);
+		return true;
 	}
 	
 	@FXML
@@ -61,6 +65,11 @@ public class AdminController extends Controller{
 		selectionModel = userList.getSelectionModel();
 		String username = selectionModel.getSelectedItem();
 		if (username == null) {
+			return;
+		} else if (username.equals("stock")) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Cannot delete the stock user.");
+			alert.showAndWait();
 			return;
 		} else {
 			Alert alert = new Alert(AlertType.CONFIRMATION,

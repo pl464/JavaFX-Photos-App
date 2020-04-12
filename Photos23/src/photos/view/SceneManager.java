@@ -72,7 +72,7 @@ public class SceneManager {
     	}
     	Scene scene = new Scene(pane);
 		mainStage.setResizable(false);
-        //mainStage.setTitle("Login");
+        mainStage.setTitle("Photos");
 		mainStage.setScene(scene);
 		mainStage.show();
 		mainStage.centerOnScreen();
@@ -112,7 +112,6 @@ public class SceneManager {
 			case "New_Photo_Popup.fxml":
 				NewPhotoController newPhotoController = loader.getController();
 				newPhotoController.setParentController((AlbumDisplayController)controller);
-				newPhotoController.setTags();
 				title = "Add Photo";
 				break;
 			

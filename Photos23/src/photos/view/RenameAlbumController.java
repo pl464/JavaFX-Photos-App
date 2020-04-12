@@ -2,8 +2,10 @@ package photos.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -24,7 +26,12 @@ MyAlbumsController myAlbumsController;
 	
 	@FXML
 	private void renameAlbum(ActionEvent e) throws Exception {
-		myAlbumsController.renameAlbum(albumName.getText());
+		if (myAlbumsController.renameAlbum(albumName.getText()) == false) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Album by that name already exists.");
+			alert.showAndWait();
+			return;
+		}
 		cancelButton.fire();
 	}
 	@FXML

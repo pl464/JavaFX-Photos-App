@@ -44,7 +44,7 @@ public class MyAlbumsController extends Controller{
 		//for each album, create a new Album to show in the TableView
 		currUser.albums.forEach((albumName,photoList)->{
 			Integer numPhotos = photoList.size();
-			String dateRange = "";
+			String dateRange = "No photos";
 			//get date range
 			if (numPhotos != 0) {
 				LocalDateTime leastDate = currUser.pictures.get(photoList.get(0)).date;
@@ -72,15 +72,23 @@ public class MyAlbumsController extends Controller{
 		currUser.tagnames.add(tag);
 	}
 	
-	public void addAlbum(String albumName) {
+	public boolean addAlbum(String albumName) {
+		if (currUser.albums.keySet().contains(albumName)) {
+			return false;
+		}
 		currUser.albums.put(albumName, new ArrayList<String>());
 		//create a new Album for displaying purposes only
 		Album newAlbum = new Album(albumName, 0, "No photos");
 		data.add(newAlbum);
+		Collections.sort(data, new NameComp());
 		albumTable.setItems(data);
+		return true;
 	}
 	
-	public void renameAlbum(String newAlbumName) {
+	public boolean renameAlbum(String newAlbumName) {
+		if (currUser.albums.keySet().contains(newAlbumName)) {
+			return false;
+		}
 		selectionModel = albumTable.getSelectionModel();
 		Album album = selectionModel.getSelectedItem();
 		//edit the TableView
@@ -94,6 +102,7 @@ public class MyAlbumsController extends Controller{
 		//display
 		Collections.sort(data, new NameComp());
 		albumTable.setItems(data);
+		return true;
 	}
 	
 	@FXML

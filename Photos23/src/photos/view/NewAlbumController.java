@@ -2,8 +2,10 @@ package photos.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -25,7 +27,18 @@ public class NewAlbumController {
 	
 	@FXML
 	private void addAlbum(ActionEvent e) throws Exception {
-		myAlbumsController.addAlbum(albumName.getText());
+		if (albumName.getText().trim().isEmpty()) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Album name cannot be blank.");
+			alert.showAndWait();
+			return;
+		}
+		if (myAlbumsController.addAlbum(albumName.getText().trim()) == false) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Album by that name already exists.");
+			alert.showAndWait();
+			return;
+		}
 		cancelButton.fire();
 	}
 	@FXML

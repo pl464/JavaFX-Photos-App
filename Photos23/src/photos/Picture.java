@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.TimeZone;
 
 public class Picture implements Serializable {
 
@@ -16,12 +16,10 @@ public class Picture implements Serializable {
 	public LocalDateTime date;
 	public HashMap<String, ArrayList<String>> tags;
 	
-	public Picture(File picture) {
+	public Picture(File file) {
+		
 		caption = "";
-		LocalDateTime lastModifiedDate =
-		        LocalDateTime.ofInstant(Instant.ofEpochMilli(picture.lastModified()), 
-		                                TimeZone.getDefault().toZoneId());  
-		date = lastModifiedDate;
+		date = LocalDateTime.ofInstant(Instant.ofEpochMilli(file.lastModified()), ZoneId.systemDefault());
 		tags = new HashMap<String, ArrayList<String>>();
 	}
 }

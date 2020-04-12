@@ -28,19 +28,18 @@ public class Temp extends Application {
 			File file = fileChooser.showOpenDialog(stage);
 	        if (file != null) {
 	            System.out.println(file.getAbsolutePath());
-	            users.get("stock").albums.get("stock").add(file.getAbsolutePath());
-	            users.get("stock").pictures.put(file.getAbsolutePath(), new Picture(file));
+	            users.get("stock").albums.get("stock").add(file.toURI().toString());
+	            users.get("stock").pictures.put(file.toURI().toString(), new Picture(file));
 	        }
 		}
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("data/users.dat"));
 		oos.writeObject(users);
 		oos.close();
 	}
-
+/*
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
 		
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/users.dat"));
-		@SuppressWarnings("unchecked")
 		HashMap<String, User> users = (HashMap<String, User>) ois.readObject();
 		for (String s : users.get("stock").albums.get("stock")) {
 			System.out.println(users.get("stock").pictures.get(s).date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
@@ -50,4 +49,5 @@ public class Temp extends Application {
 		}
 		ois.close();
 	}
+	*/
 }
