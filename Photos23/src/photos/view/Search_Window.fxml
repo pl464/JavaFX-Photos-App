@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.SearchController">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.SearchController">
    <children>
       <ScrollPane layoutX="36.0" layoutY="138.0" prefHeight="470.0" prefWidth="528.0">
         <content>
@@ -27,7 +27,7 @@
             <ToggleGroup fx:id="searchParamGroup" />
          </toggleGroup></RadioButton>
       <RadioButton fx:id="oneTagButton" layoutX="17.0" layoutY="68.0" mnemonicParsing="false" onAction="#displayOneTagSearch" text="One Tag" toggleGroup="$searchParamGroup" />
-      <Button fx:id="createNewAlbumButton" layoutX="38.0" layoutY="639.0" mnemonicParsing="false" text="Create New Album" />
+      <Button fx:id="createNewAlbumButton" layoutX="38.0" layoutY="639.0" mnemonicParsing="false" onAction="#displayNewAlbumPopup" text="Create New Album" />
       <Button fx:id="cancelButton" layoutX="510.0" layoutY="639.0" mnemonicParsing="false" onAction="#goBack" text="Cancel" />
       <Button fx:id="searchButton" layoutX="510.0" layoutY="64.0" mnemonicParsing="false" onAction="#search" text="Search" />
       <TextField fx:id="field1" layoutX="289.0" layoutY="30.0" onMouseClicked="#setFieldEmpty" text="Date (MM/DD/YYYY)">

@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 public class NewAlbumController {
 	MyAlbumsController myAlbumsController;
+	SearchController searchController;
 	
 	@FXML
 	private TextField albumName;
@@ -25,6 +26,11 @@ public class NewAlbumController {
 		return;
 	}
 	
+	public void setParentController(SearchController searchController) {
+		this.searchController = searchController;
+		return;
+	}
+	
 	@FXML
 	private void addAlbum(ActionEvent e) throws Exception {
 		if (albumName.getText().trim().isEmpty()) {
@@ -33,7 +39,13 @@ public class NewAlbumController {
 			alert.showAndWait();
 			return;
 		}
-		if (myAlbumsController.addAlbum(albumName.getText().trim()) == false) {
+		if (searchController != null && searchController.addAlbum(albumName.getText().trim()) == false) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Album by that name already exists.");
+			alert.showAndWait();
+			return;
+		}
+		else if (myAlbumsController != null && myAlbumsController.addAlbum(albumName.getText().trim()) == false) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setContentText("Album by that name already exists.");
 			alert.showAndWait();

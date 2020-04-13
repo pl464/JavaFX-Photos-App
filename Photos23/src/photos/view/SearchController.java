@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import photos.Picture;
+import photos.view.MyAlbumsController.Album;
+import photos.view.MyAlbumsController.NameComp;
 
 public class SearchController extends Controller{
 	
@@ -57,6 +60,7 @@ public class SearchController extends Controller{
 	
 	String currTag1;
 	String currTag2;
+	static ArrayList<String> results;
 	
 	public void setTags() {
 		HashMap<String, Boolean> tagnames = Controller.currUser.tagnames;
@@ -79,7 +83,7 @@ public class SearchController extends Controller{
 
 	@FXML
 	private void search(ActionEvent e) {
-		ArrayList<String> results = new ArrayList<>();
+		results = new ArrayList<>();
 		previews.getChildren().clear();
 		
 		if (dateButton.isSelected()) {
@@ -214,6 +218,21 @@ public class SearchController extends Controller{
 		previews.getChildren().add(preview);
 	}
 	
+	//called by NewAlbumController
+	public boolean addAlbum(String albumName) throws Exception {
+		if (currUser.albums.keySet().contains(albumName)) {
+			return false;
+		}
+		ArrayList<String> newAlbumResults = results;
+		currUser.albums.put(albumName, newAlbumResults);
+		if (albumScope == true) {
+			sceneManager.switchScene("Album_Display_Window.fxml", users);
+		} else {
+			sceneManager.switchScene("My_Albums_Window.fxml", users);
+		}
+		return true;
+	}
+	
 	@FXML 
 	private void displayDateSearch(ActionEvent e) {
 		label1.setVisible(true);
@@ -248,6 +267,10 @@ public class SearchController extends Controller{
 		field2.setText("Tag_Value");
 		andButton.setVisible(true);
 		orButton.setVisible(true);
+	}
+	@FXML
+	private void displayNewAlbumPopup(ActionEvent e) throws Exception {
+		sceneManager.openScene("New_Album_Popup.fxml", this);
 	}
 	@FXML
 	private void setFieldEmpty(MouseEvent e) {

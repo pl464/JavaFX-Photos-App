@@ -44,9 +44,9 @@ public class Temp extends Application {
 		for (String s : users.get("stock").albums.get("stock")) {
 			System.out.println(users.get("stock").pictures.get(s).date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 		}
-		for (String s : users.get("stock").tagnames) {
-			System.out.println(s);
-		}
+		//for (String s : users.get("stock").tagnames) {
+		//	System.out.println(s);
+		//}
 		ois.close();
 	}
 	*/
