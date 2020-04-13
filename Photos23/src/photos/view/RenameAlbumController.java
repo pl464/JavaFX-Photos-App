@@ -26,6 +26,12 @@ MyAlbumsController myAlbumsController;
 	
 	@FXML
 	private void renameAlbum(ActionEvent e) throws Exception {
+		if (albumName.getText().trim().isEmpty()) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Album name cannot be blank.");
+			alert.showAndWait();
+			return;
+		}
 		if (myAlbumsController.renameAlbum(albumName.getText()) == false) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setContentText("Album by that name already exists.");

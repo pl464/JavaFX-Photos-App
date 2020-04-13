@@ -10,14 +10,14 @@ public class User implements Serializable {
 	
 	public HashMap<String, ArrayList<String>> albums;
 	public HashMap<String, Picture> pictures;
-	public ArrayList<String> tagnames;
+	public HashMap<String, Boolean> tagnames; //true if one value allowed per photo, false if multiple values allowed per photo
 	
 	public User() {
 		
 		albums = new HashMap<String, ArrayList<String>>();
 		pictures = new HashMap<String, Picture>();
-		tagnames = new ArrayList<String>();
-		tagnames.add("location");
-		tagnames.add("person");
+		tagnames = new HashMap<String, Boolean>();
+		tagnames.put("location", true);
+		tagnames.put("person", false);
 	}
 }

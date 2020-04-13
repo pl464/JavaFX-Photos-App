@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -68,8 +69,12 @@ public class MyAlbumsController extends Controller{
 		Collections.sort(data, new NameComp());
 		albumTable.setItems(data);
 	}
-	public void addTag(String tag) {
-		currUser.tagnames.add(tag);
+	public boolean addTag(String tag, boolean single) {
+		if (currUser.tagnames.containsKey(tag)) {
+			return false;
+		}
+		currUser.tagnames.put(tag, single);
+		return true;
 	}
 	
 	public boolean addAlbum(String albumName) {
@@ -130,10 +135,16 @@ public class MyAlbumsController extends Controller{
 		sceneManager.openScene("New_Album_Popup.fxml", this);
 	}
 	@FXML private void showRenameAlbumPopup(ActionEvent e) throws Exception {
+		selectionModel = albumTable.getSelectionModel();
+		Album album = selectionModel.getSelectedItem();
+		if (album == null) {
+			return;
+		}
 		sceneManager.openScene("Rename_Album_Popup.fxml", this);
 	}
 	
 	//currently DOES NOT search albums. for testing purposes, prints out tagnames and albumnames.
+
 	@FXML private void searchAlbums(ActionEvent e) throws Exception {
 		setAlbumScope(false);
 		sceneManager.switchScene("Search_Window.fxml", users);

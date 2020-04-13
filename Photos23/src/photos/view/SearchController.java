@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javafx.event.ActionEvent;
@@ -58,8 +59,8 @@ public class SearchController extends Controller{
 	String currTag2;
 	
 	public void setTags() {
-		ArrayList<String> tagnames = Controller.currUser.tagnames;
-		tagnames.forEach((tag)->{
+		HashMap<String, Boolean> tagnames = Controller.currUser.tagnames;
+		tagnames.keySet().forEach((tag)->{
 			MenuItem item1 = new MenuItem(tag);
 			MenuItem item2 = new MenuItem(tag);
 			//set action of each MenuItem in the menu

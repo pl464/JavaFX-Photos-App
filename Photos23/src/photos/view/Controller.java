@@ -1,6 +1,8 @@
 package photos.view;
 
 import java.util.HashMap;
+
+import photos.Picture;
 import photos.User;
 
 /**
@@ -12,10 +14,11 @@ import photos.User;
  *
  */
 public abstract class Controller {
-	SceneManager sceneManager; //can this be public static? should these be private?
-	public static HashMap<String, User> users; 
+	SceneManager sceneManager; //can this be public static?
+	public static HashMap<String, User> users;
 	public static User currUser;
 	public static String currAlbum;
+	public static String currPhoto;
 	public static boolean albumScope; //true if searching at the album level, false if searching all albums
 	
 	public void setSceneManager(SceneManager sceneManager) {
@@ -37,6 +40,10 @@ public abstract class Controller {
 	
 	public void setCurrAlbum (String albumName) {
 		currAlbum = albumName;
+	}
+	
+	public void setCurrPhoto (String photoPath) {
+		currPhoto = photoPath;
 	}
 	
 	public void setAlbumScope (boolean b) {

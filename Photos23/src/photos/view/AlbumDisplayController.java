@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import photos.Picture;
+import photos.view.MyAlbumsController.Album;
 
 public class AlbumDisplayController extends Controller {
 	@FXML private Label albumName;
@@ -37,13 +38,12 @@ public class AlbumDisplayController extends Controller {
 	public static Label selected; 
 	
 	public void displayPhotos() {
-		albumName.setText(currAlbum);
 		previews.getChildren().clear();
 		previews.setOnMouseClicked(e->{
 			viewButton.requestFocus();
 		});
 		currUser.albums.get(currAlbum).forEach((k)->{
-			Image image = new Image(k, 166, 166, true ,false);
+			Image image = new Image(k, 112, 0, true, false);
 			ImageView newImage = new ImageView(image);
 			
 			String cap = currUser.pictures.get(k).caption;
@@ -75,7 +75,7 @@ public class AlbumDisplayController extends Controller {
 			return false;
 		}
 		currUser.albums.get(currAlbum).add(file.toURI().toString());
-		Image image = new Image(file.toURI().toString(), 166, 166, true ,false); 
+		Image image = new Image(file.toURI().toString(), 112, 0, true, false);
 		ImageView newImage = new ImageView(image);
 		displayPhoto("", newImage, file.toURI().toString());
 				
@@ -92,8 +92,12 @@ public class AlbumDisplayController extends Controller {
 		sceneManager.switchScene("Search_Window.fxml", users);
 	}
 	
-	public void addTag(String tag) {
-		currUser.tagnames.add(tag);
+	public boolean addTag(String tag, boolean single) {
+		if (currUser.tagnames.containsKey(tag)) {
+			return false;
+		}
+		currUser.tagnames.put(tag, single);
+		return true;
 	}
 	
 	@FXML
@@ -106,10 +110,12 @@ public class AlbumDisplayController extends Controller {
 				ButtonType.YES, ButtonType.NO);
 		Optional<ButtonType> confirm = alert.showAndWait();
 		if (confirm.get() == ButtonType.NO) return; 
+		
 		currUser.albums.get(currAlbum).remove(selected.getUserData());
 		displayPhotos();
 		selected = null;
 	}
+	
 	@FXML
 	private void goBack(ActionEvent e) throws Exception {
 		sceneManager.switchScene("My_Albums_Window.fxml", users);
@@ -120,11 +126,22 @@ public class AlbumDisplayController extends Controller {
 		sceneManager.openScene("New_Photo_Popup.fxml", this);
 	}
 
-	@FXML private void showNewTagPopup(ActionEvent e) throws Exception {
+	@FXML
+	private void showNewTagPopup(ActionEvent e) throws Exception {
 		sceneManager.openScene("New_Tag_Popup.fxml", this);
 	}
+	
 	@FXML
 	private void logout(ActionEvent e) throws Exception {
 		sceneManager.switchScene("Login_Window.fxml", users);
+	}
+	
+	@FXML
+	private void openPhoto(ActionEvent e) throws Exception {
+		if (selected == null) {
+			return;
+		}
+		setCurrPhoto((String) selected.getUserData());
+		sceneManager.switchScene("Photo_Display_Window.fxml", users);
 	}
 }
