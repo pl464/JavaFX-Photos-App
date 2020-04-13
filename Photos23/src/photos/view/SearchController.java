@@ -281,10 +281,6 @@ public class SearchController extends Controller{
 	}
 	@FXML
 	private void goBack(ActionEvent e) throws Exception {
-		if (albumScope == true) {
-			sceneManager.switchScene("Album_Display_Window.fxml", users);
-		} else {
-			sceneManager.switchScene("My_Albums_Window.fxml", users);
-		}
+		sceneManager.switchScene("My_Albums_Window.fxml", users);
 	}
 }
