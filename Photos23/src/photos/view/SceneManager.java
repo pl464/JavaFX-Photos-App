@@ -15,7 +15,7 @@ import photos.User;
 
 /**
  * This class handles switching between the various windows of the application. 
- * It also acts as an intermediary between different Controller instances.
+ * It also attempts to act as an intermediary between different Controller instances.
  * @author patle
  *
  */
@@ -107,11 +107,7 @@ public class SceneManager {
 				break;
 			case "New_Album_Popup.fxml":
 				NewAlbumController newAlbumController = loader.getController();
-				if (controller.getClass().toString().equals("class photos.view.MyAlbumsController")) {
-					newAlbumController.setParentController((MyAlbumsController)controller);
-				} else {
-					newAlbumController.setParentController((SearchController)controller);
-				}
+				newAlbumController.setParentController((MyAlbumsController)controller);
 				title = "Add Album";
 				break;
 			case "Rename_Album_Popup.fxml":
@@ -139,11 +135,13 @@ public class SceneManager {
 				CopyPhotoController copyPhotoController = loader.getController();
 				copyPhotoController.setParentController((PhotoDisplayController)controller);
 				title = "Copy Photo";
+				copyPhotoController.setAlbums();
 				break;
 			case "Move_Photo_Popup.fxml":
 				MovePhotoController movePhotoController = loader.getController();
 				movePhotoController.setParentController((PhotoDisplayController)controller);
 				title = "Move Photo";
+				movePhotoController.setAlbums();
 				break;
 		}
 		
