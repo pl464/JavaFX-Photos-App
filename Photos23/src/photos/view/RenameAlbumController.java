@@ -40,15 +40,13 @@ MyAlbumsController myAlbumsController;
 		}
 		cancelButton.fire();
 	}
+	/**
+	 * Closes this scene and returns control to the parent scene. 
+	 * @param e The event that triggered this method.
+	 */
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();
 	    stage.close();
-	}
-	@FXML
-	private void keyPressed(KeyEvent keyEvent) {
-	    if (keyEvent.getCode() == KeyCode.ENTER) {
-	        okButton.fire();
-	    }
 	}
 }

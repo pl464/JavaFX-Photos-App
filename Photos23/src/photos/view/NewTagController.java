@@ -64,6 +64,10 @@ public class NewTagController {
 		}
 		cancelButton.fire();
 	}
+	/**
+	 * Closes this scene and returns control to the parent scene. 
+	 * @param e The event that triggered this method.
+	 */
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();

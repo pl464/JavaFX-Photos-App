@@ -156,6 +156,11 @@ public class MyAlbumsController extends Controller{
 		setCurrAlbum(album.name);
 		sceneManager.switchScene("Album_Display_Window.fxml", users);
 	}
+	/**
+	 * Switches the main scene to the Login Window.
+	 * @param e The event that triggered this method.
+	 * @throws Exception
+	 */
 	@FXML
 	private void logout(ActionEvent e) throws Exception {
 		sceneManager.switchScene("Login_Window.fxml", users);
