@@ -43,7 +43,8 @@ public class PhotoDisplayController extends Controller {
 	@FXML private Button moveButton;
 	
 	//field acting as the selection model
-	public static Label selected; 
+	public static String currName = "";
+	public static String currVal = "";
 	
 	public void displaySingle() {
 		tagPairs.getChildren().clear();
@@ -62,50 +63,23 @@ public class PhotoDisplayController extends Controller {
 			photoCaption.setText(currUser.pictures.get(currPhoto).caption);
 		}
 		
-		if (currUser.pictures.get(currPhoto).tags.isEmpty() == false) {
-			//photoTags.setText("(no tags)");
-		}
-		//else {
-			String temp = "";
-			/*
-			currUser.pictures.get(currPhoto).tags.put("testname", new ArrayList<String>());
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval2");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval3");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval4");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval5");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval6");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval7");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval8");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval9");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval10");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval11");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval12");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval13");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval14");
-			currUser.pictures.get(currPhoto).tags.get("testname").add("testval15");
-			*/
-			for (String name : currUser.pictures.get(currPhoto).tags.keySet()) {
-				for (String val : currUser.pictures.get(currPhoto).tags.get(name)) {
-					temp = temp.concat("," + name + ": " + val);
-					displayTag(name + ": " + val);
-				}
+		for (String name : currUser.pictures.get(currPhoto).tags.keySet()) {
+			for (String val : currUser.pictures.get(currPhoto).tags.get(name)) {
+				displayTag(name, val);
 			}
-			//temp = temp.substring(2);
-			//photoTags.setText(temp);
-		//}
+		}
 	}
 	
-	public void displayTag(String s) {
-		Label pair = new Label(s);
+	public void displayTag(String name, String val) {
+		Label pair = new Label(name + ": " + val);
 		pair.setContentDisplay(ContentDisplay.TOP);
 		pair.setOnMouseClicked(e->{
 			tagPairs.getChildren().forEach((c)->{
 				((Label)c).setBorder(new Border(new BorderStroke(new Color(0,0,0,0), BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
 			});
-			tagPairs.setBorder(new Border(new BorderStroke(Color.SKYBLUE, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
-			selected = pair;
-			//selected.setUserData(filePath);
+			pair.setBorder(new Border(new BorderStroke(Color.SKYBLUE, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
+			currName = name;
+			currVal = val;
 		});
 		pair.setBorder(new Border(new BorderStroke(new Color(0,0,0,0), BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
 		tagPairs.getChildren().add(pair);
@@ -151,17 +125,46 @@ public class PhotoDisplayController extends Controller {
 		sceneManager.openScene("Edit_Caption_Popup.fxml", this);
 	}
 	
-	public void addTag() {
-		
-	}
-	
-	public void removeTag() {
-		
+	public boolean addTag(String tagName, String tagVal) {
+		if (currUser.pictures.get(currPhoto).tags.containsKey(tagName)) {
+			if (currUser.pictures.get(currPhoto).tags.get(tagName).contains(tagVal)) {
+				return false;
+			}
+			else {
+				currUser.pictures.get(currPhoto).tags.get(tagName).add(tagVal);
+				displaySingle();
+				return true;
+			}
+		}
+		currUser.pictures.get(currPhoto).tags.put(tagName, new ArrayList<String>());
+		currUser.pictures.get(currPhoto).tags.get(tagName).add(tagVal);
+		displaySingle();
+		return true;
 	}
 	
 	@FXML
-	private void showEditTagsPopup(ActionEvent e) throws Exception {
-		sceneManager.openScene("Edit_Tags_Popup.fxml", this);
+	private void showAddTagPopup(ActionEvent e) throws Exception {
+		sceneManager.openScene("Add_Tag_Popup.fxml", this);
+	}
+	
+	@FXML
+	private void deleteTag(ActionEvent e) {
+		if (currName.trim().isEmpty()) {
+			return;
+		}
+		Alert alert = new Alert(AlertType.CONFIRMATION,
+				"Are you sure you want to delete the selected tag?", 
+				ButtonType.YES, ButtonType.NO);
+		Optional<ButtonType> confirm = alert.showAndWait();
+		if (confirm.get() == ButtonType.NO) return; 
+		
+		currUser.pictures.get(currPhoto).tags.get(currName).remove(currVal);
+		if (currUser.pictures.get(currPhoto).tags.get(currName).isEmpty()) {
+			currUser.pictures.get(currPhoto).tags.remove(currName);
+		}
+		displaySingle();
+		currName = "";
+		currVal = "";
 	}
 	
 	@FXML

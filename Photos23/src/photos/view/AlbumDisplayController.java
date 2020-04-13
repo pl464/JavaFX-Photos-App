@@ -38,6 +38,7 @@ public class AlbumDisplayController extends Controller {
 	public static Label selected; 
 	
 	public void displayPhotos() {
+		albumName.setText(currAlbum);
 		previews.getChildren().clear();
 		previews.setOnMouseClicked(e->{
 			viewButton.requestFocus();

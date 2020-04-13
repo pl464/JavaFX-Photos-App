@@ -43,20 +43,6 @@ public class NewPhotoController {
 		this.filePath.setEditable(false);
 		return;
 	}
-/*	
-	public void setTags() {
-		ArrayList<String> tagnames = Controller.currUser.tagnames;
-		tagnames.forEach((tag)->{
-			MenuItem item = new MenuItem(tag);
-			//set action of each MenuItem in the menu
-			item.setOnAction(e->{
-				tagMenu.setText(tag);
-				currTag = tag;
-			});
-			tagMenu.getItems().add(item);
-		});
-	}
-*/
 	
 	@FXML
 	private void chooseFile(ActionEvent e) throws MalformedURLException {
@@ -67,7 +53,6 @@ public class NewPhotoController {
 		if (file == null) return;
 		currPicture = file;
 		filePath.setText(file.getAbsolutePath());
-		//Image image = new Image(filename);
 	}
 	
 	@FXML
