@@ -15,7 +15,7 @@
       </Label>
       <Label layoutX="70.0" layoutY="114.0" text="Move to..." />
       <Button fx:id="okButton" layoutX="220.0" layoutY="177.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="65.0" onAction="#movePhoto" text="OK" />
-      <MenuButton fx:id="chooseButton" layoutX="130.0" layoutY="110.0" maxWidth="200.0" mnemonicParsing="false" prefWidth="200.0" text="Choose Album" />
+      <MenuButton fx:id="albumMenu" layoutX="130.0" layoutY="110.0" maxWidth="200.0" mnemonicParsing="false" prefWidth="200.0" text="Choose Album" />
       <Button fx:id="cancelButton" layoutX="296.0" layoutY="177.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="79.0" onAction="#closePopup" text="Cancel" />
    </children>
 </AnchorPane>
