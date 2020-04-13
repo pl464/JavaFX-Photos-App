@@ -132,11 +132,13 @@ public class PhotoDisplayController extends Controller {
 			}
 			else {
 				currUser.pictures.get(currPhoto).tags.get(tagName).add(tagVal);
+				displaySingle();
 				return true;
 			}
 		}
 		currUser.pictures.get(currPhoto).tags.put(tagName, new ArrayList<String>());
 		currUser.pictures.get(currPhoto).tags.get(tagName).add(tagVal);
+		displaySingle();
 		return true;
 	}
 	
