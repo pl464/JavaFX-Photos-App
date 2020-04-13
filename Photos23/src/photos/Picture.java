@@ -8,6 +8,11 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class representing a Picture 
+ * @author patle
+ *
+ */
 public class Picture implements Serializable {
 
 	static final long serialVersionUID = 1L;
