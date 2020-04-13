@@ -107,7 +107,11 @@ public class SceneManager {
 				break;
 			case "New_Album_Popup.fxml":
 				NewAlbumController newAlbumController = loader.getController();
-				newAlbumController.setParentController((MyAlbumsController)controller);
+				if (controller.getClass().toString().equals("class photos.view.MyAlbumsController")) {
+					newAlbumController.setParentController((MyAlbumsController)controller);
+				} else {
+					newAlbumController.setParentController((SearchController)controller);
+				}
 				title = "Add Album";
 				break;
 			case "Rename_Album_Popup.fxml":
