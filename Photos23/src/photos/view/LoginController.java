@@ -30,12 +30,4 @@ public class LoginController extends Controller{
 			alert.showAndWait();
 		}
 	}
-	
-	@FXML
-	private void keyPressed(KeyEvent keyEvent) {
-	    if (keyEvent.getCode() == KeyCode.ENTER) {
-	        loginButton.fire();
-	    }
-	}
-	
 }

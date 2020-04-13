@@ -21,20 +21,37 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import photos.Picture;
 
+/**
+* @author Lance Luo
+* Class to represent the copy photo popup.
+*/
 public class CopyPhotoController {
 
 	@FXML private MenuButton albumMenu;
 	@FXML private Button okButton;
 	@FXML private Button cancelButton;
 	
+	/**
+	 * The calling controller.
+	 */
 	PhotoDisplayController photoDisplayController;
+	/**
+	 * The selected menu item.
+	 */
 	String chosenAlbum;
 	
+	/**
+	* Method to set the calling controller.
+	* @param photoDisplayController The controller that called this class.
+	*/
 	public void setParentController(PhotoDisplayController photoDisplayController) {
 		this.photoDisplayController = photoDisplayController;
 		return;
 	}
 	
+	/**
+	* Method to show the list of albums in the menu.
+	*/
 	public void setAlbums() {
 		for (String albumName : Controller.currUser.albums.keySet()) {
 			MenuItem item = new MenuItem(albumName);
@@ -46,6 +63,10 @@ public class CopyPhotoController {
 		}
 	}
 	
+	/**
+	* Method to call copyPhoto in the parent controller.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void copyPhoto(ActionEvent e) throws Exception {
 		if (chosenAlbum == null) {
@@ -62,7 +83,11 @@ public class CopyPhotoController {
 		}
 		cancelButton.fire();
 	}
-	
+
+	/**
+	* Method to close the popup.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();

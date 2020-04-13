@@ -21,22 +21,41 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import photos.Picture;
 
+/**
+* @author Lance Luo
+* @author Patrick Lee
+* Class to represent the new photo popup.
+*/
 public class NewPhotoController {
 
 	@FXML private Button browseButton;
 	@FXML private TextField filePath;
 	@FXML private Button okButton;
 	@FXML private Button cancelButton;
-	
+
+	/**
+	 * The calling controller.
+	 */
 	AlbumDisplayController albumDisplayController;
+	/**
+	 * The selected photo file.
+	 */
 	File currPicture;
 	
+	/**
+	* Method to set the calling controller.
+	* @param albumDisplayController The controller that called this class.
+	*/
 	public void setParentController(AlbumDisplayController albumDisplayController) {
 		this.albumDisplayController = albumDisplayController;
 		this.filePath.setEditable(false);
 		return;
 	}
 	
+	/**
+	* Method to load a photo from the user's computer.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void chooseFile(ActionEvent e) throws MalformedURLException {
 		FileChooser fileChooser = new FileChooser();
@@ -48,6 +67,10 @@ public class NewPhotoController {
 		filePath.setText(file.getAbsolutePath());
 	}
 	
+	/**
+	* Method to call addNewPhoto in the parent controller.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void createPicture(ActionEvent e) {
 		if (currPicture == null) {
@@ -65,15 +88,13 @@ public class NewPhotoController {
 		cancelButton.fire();
 	}
 
+	/**
+	* Method to close the popup.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();
 	    stage.close();
-	}
-	@FXML
-	private void keyPressed(KeyEvent keyEvent) {
-	    if (keyEvent.getCode() == KeyCode.ENTER) {
-	        okButton.fire();
-	    }
 	}
 }
