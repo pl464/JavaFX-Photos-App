@@ -106,6 +106,7 @@ public class PhotoDisplayController extends Controller {
 	/**
 	* Method to return to the previous screen.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void goBack(ActionEvent e) throws Exception {
@@ -115,6 +116,7 @@ public class PhotoDisplayController extends Controller {
 	/**
 	* Method to return to the login screen.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void logout(ActionEvent e) throws Exception {
@@ -161,6 +163,7 @@ public class PhotoDisplayController extends Controller {
 	/**
 	* Method to show the edit caption popup.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void showEditCaptionPopup(ActionEvent e) throws Exception {
@@ -194,6 +197,7 @@ public class PhotoDisplayController extends Controller {
 	/**
 	* Method to show the add tag popup.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void showAddTagPopup(ActionEvent e) throws Exception {
@@ -228,6 +232,7 @@ public class PhotoDisplayController extends Controller {
 	* Method to copy the photo to another album.
 	* @param otherAlbum The album that the photo will be copied to.
 	* @return False if other album already contains the photo, true otherwise.
+	* @throws Exception
 	*/
 	public boolean copyPhoto(String otherAlbum) throws Exception {
 		if (currUser.albums.get(otherAlbum).contains(currPhoto)) {
@@ -242,6 +247,7 @@ public class PhotoDisplayController extends Controller {
 	/**
 	* Method to show the copy photo popup.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void showCopyPhotoPopup(ActionEvent e) throws Exception {
@@ -252,6 +258,7 @@ public class PhotoDisplayController extends Controller {
 	* Method to move the photo to another album.
 	* @param otherAlbum The album that the photo will be moved to.
 	* @return False if other album already contains the photo, true otherwise.
+	* @throws Exception
 	*/
 	public boolean movePhoto(String otherAlbum) throws Exception {
 		if (currUser.albums.get(otherAlbum).contains(currPhoto)) {
@@ -267,6 +274,7 @@ public class PhotoDisplayController extends Controller {
 	/**
 	* Method to show the move photo popup.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void showMovePhotoPopup(ActionEvent e) throws Exception {

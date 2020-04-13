@@ -35,6 +35,11 @@ import photos.Picture;
 import photos.view.MyAlbumsController.Album;
 import photos.view.MyAlbumsController.NameComp;
 
+/**
+* @author Lance Luo
+* @author Patrick Lee
+* Class to represent the search window.
+*/
 public class SearchController extends Controller{
 	
 	@FXML private RadioButton dateButton;

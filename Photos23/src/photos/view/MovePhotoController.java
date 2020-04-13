@@ -66,6 +66,7 @@ public class MovePhotoController {
 	/**
 	* Method to call movePhoto in the parent controller.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void movePhoto(ActionEvent e) throws Exception {

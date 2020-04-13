@@ -51,6 +51,7 @@ public class NewAlbumController {
 	/**
 	* Method to call addAlbum in the parent controller.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void addAlbum(ActionEvent e) throws Exception {

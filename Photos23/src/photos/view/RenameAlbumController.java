@@ -38,6 +38,7 @@ public class RenameAlbumController {
 	/**
 	* Method to call renameAlbum in the parent controller.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void renameAlbum(ActionEvent e) throws Exception {

@@ -38,6 +38,7 @@ public class NewUserController {
 	/**
 	* Method to call addUser in the parent controller.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
 	private void addUser(ActionEvent e) throws Exception {

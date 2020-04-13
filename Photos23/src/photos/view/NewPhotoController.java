@@ -55,9 +55,10 @@ public class NewPhotoController {
 	/**
 	* Method to load a photo from the user's computer.
 	* @param e The event that triggered this method.
+	* @throws Exception
 	*/
 	@FXML
-	private void chooseFile(ActionEvent e) throws MalformedURLException {
+	private void chooseFile(ActionEvent e) throws Exception {
 		FileChooser fileChooser = new FileChooser();
 		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg, *.png)", "*.jpg", "*.png");
 		fileChooser.getExtensionFilters().add(extFilter);
