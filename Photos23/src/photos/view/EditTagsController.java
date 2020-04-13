@@ -18,7 +18,7 @@ public class EditTagsController {
 	@FXML private TableView<String> tagsTable;
 	@FXML private TableColumn<String, String> nameColumn;
 	@FXML private TableColumn<String, String> valueColumn;
-	@FXML private Button doneButton;
+	@FXML private Button cancelButton;
 	@FXML private Button addButton;
 	@FXML private Button removeButton;
 	@FXML private MenuButton tagNameButton;
@@ -33,17 +33,19 @@ public class EditTagsController {
 	
 	@FXML
 	private void addTag(ActionEvent e) {
-		
+		//photoDisplayController.editCaption(captionText.getText().trim());
+		cancelButton.fire();
 	}
 	
 	@FXML
 	private void removeTag(ActionEvent e) {
-		
+		//photoDisplayController.editCaption(captionText.getText().trim());
+		cancelButton.fire();
 	}
 	
 	@FXML
 	private void closePopup(ActionEvent e) {
-		Stage stage = (Stage) doneButton.getScene().getWindow();
+		Stage stage = (Stage) cancelButton.getScene().getWindow();
 	    stage.close();
 	}
 }

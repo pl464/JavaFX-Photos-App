@@ -13,7 +13,7 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Button fx:id="doneButton" layoutX="314.0" layoutY="36.0" mnemonicParsing="false" onAction="#closePopup" text="Done" />
+      <Button fx:id="cancelButton" layoutX="314.0" layoutY="36.0" mnemonicParsing="false" onAction="#closePopup" text="Done" />
       <TableView fx:id="tagsTable" layoutX="38.0" layoutY="86.0" prefHeight="370.0" prefWidth="330.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="160.0" text="Tag Name" />

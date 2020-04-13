@@ -69,8 +69,12 @@ public class MyAlbumsController extends Controller{
 		Collections.sort(data, new NameComp());
 		albumTable.setItems(data);
 	}
-	public void addTag(String tag) {
-		currUser.tagnames.add(tag);
+	public boolean addTag(String tag, boolean single) {
+		if (currUser.tagnames.containsKey(tag)) {
+			return false;
+		}
+		currUser.tagnames.put(tag, single);
+		return true;
 	}
 	
 	public boolean addAlbum(String albumName) {
@@ -141,7 +145,7 @@ public class MyAlbumsController extends Controller{
 	
 	//currently DOES NOT search albums. for testing purposes, prints out tagnames and albumnames.
 	@FXML private void searchAlbums(ActionEvent e) {
-		currUser.tagnames.forEach((tag)->System.out.println(tag));
+		currUser.tagnames.keySet().forEach((tag)->System.out.println(tag));
 		currUser.albums.forEach((k,v)->System.out.println(k));
 	}
 

@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import photos.Picture;
+import photos.view.MyAlbumsController.Album;
 
 public class AlbumDisplayController extends Controller {
 	@FXML private Label albumName;
@@ -91,8 +92,12 @@ public class AlbumDisplayController extends Controller {
 		sceneManager.switchScene("Search_Window.fxml", users);
 	}
 	
-	public void addTag(String tag) {
-		currUser.tagnames.add(tag);
+	public boolean addTag(String tag, boolean single) {
+		if (currUser.tagnames.containsKey(tag)) {
+			return false;
+		}
+		currUser.tagnames.put(tag, single);
+		return true;
 	}
 	
 	@FXML
@@ -133,6 +138,10 @@ public class AlbumDisplayController extends Controller {
 	
 	@FXML
 	private void openPhoto(ActionEvent e) throws Exception {
+		if (selected == null) {
+			return;
+		}
+		setCurrPhoto((String) selected.getUserData());
 		sceneManager.switchScene("Photo_Display_Window.fxml", users);
 	}
 }
