@@ -225,11 +225,7 @@ public class SearchController extends Controller{
 		}
 		ArrayList<String> newAlbumResults = results;
 		currUser.albums.put(albumName, newAlbumResults);
-		if (albumScope == true) {
-			sceneManager.switchScene("Album_Display_Window.fxml", users);
-		} else {
-			sceneManager.switchScene("My_Albums_Window.fxml", users);
-		}
+		sceneManager.switchScene("My_Albums_Window.fxml", users);
 		return true;
 	}
 	
@@ -281,6 +277,10 @@ public class SearchController extends Controller{
 	}
 	@FXML
 	private void goBack(ActionEvent e) throws Exception {
-		sceneManager.switchScene("My_Albums_Window.fxml", users);
+		if (albumScope == true) {
+			sceneManager.switchScene("Album_Display_Window.fxml", users);
+		} else {
+			sceneManager.switchScene("My_Albums_Window.fxml", users);
+		}
 	}
 }

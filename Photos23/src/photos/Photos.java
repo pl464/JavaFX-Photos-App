@@ -28,6 +28,9 @@ public class Photos extends Application {
 	 * A HashMap to store all user information in the application.
 	 */
 	static HashMap<String, User> users;
+	/**
+	 * AnchorPane to act as the base element of the main stage's Scene.
+	 */
 	AnchorPane pane;
 	
 	/**
