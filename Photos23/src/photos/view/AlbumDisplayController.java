@@ -53,7 +53,7 @@ public class AlbumDisplayController extends Controller {
 	}
 	
 	public void displayPhoto(String cap, ImageView image, String filePath) {
-		if (cap.length() > 26) cap = cap.substring(0, 26) + "...";
+		if (cap.length() > 12) cap = cap.substring(0, 12) + "...";
 		else if (cap.length() == 0) cap = "(no caption)";
 		
 		Label preview = new Label(cap, image);

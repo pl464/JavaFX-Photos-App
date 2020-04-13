@@ -13,8 +13,8 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <TextArea fx:id="captionText" layoutX="78.0" layoutY="80.0" prefHeight="80.0" prefWidth="300.0"/>
-      <Label layoutX="28.0" layoutY="84.0" text="Caption"/>
+      <TextField fx:id="captionText" layoutX="78.0" layoutY="106.0" prefWidth="300.0"/>
+      <Label layoutX="28.0" layoutY="110.0" text="Caption"/>
       <Button fx:id="okButton" layoutX="220.0" layoutY="177.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="65.0" onAction="#editCaption" text="OK" />
       <Button fx:id="cancelButton" layoutX="296.0" layoutY="177.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="79.0" onAction="#closePopup" text="Cancel" />
    </children>

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class EditCaptionController {
 	
-	@FXML private TextArea captionText;
+	@FXML private TextField captionText;
 	@FXML private Button okButton;
 	@FXML private Button cancelButton;
 	

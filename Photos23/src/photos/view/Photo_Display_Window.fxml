@@ -9,24 +9,23 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.PhotoDisplayController">
    <children>
-      <ImageView fx:id="photoImage" fitHeight="478.0" fitWidth="480.0" layoutX="62.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="photoImage" fitHeight="460.0" fitWidth="474.0" layoutX="62.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="previousButton" layoutX="554.0" layoutY="297.0" mnemonicParsing="false" onAction="#displayNext" text="-&gt;" />
       <Button fx:id="nextButton" layoutX="16.0" layoutY="297.0" mnemonicParsing="false" onAction="#displayPrevious" text="&lt;-" />
       <Button fx:id="logoutButton" layoutX="508.0" layoutY="21.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
       <Button fx:id="backButton" layoutX="458.0" layoutY="21.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
       <Button fx:id="captionButton" layoutX="33.0" layoutY="662.0" mnemonicParsing="false" onAction="#showEditCaptionPopup" text="Recaption"/>
-      <Label fx:id="photoCaption" layoutX="36.0" layoutY="548.0" text="Full Caption">
-         <font>
-            <Font name="System Italic" />
-         </font>
-      </Label>
+      <ScrollPane layoutX="36.0" layoutY="530.0" prefWidth="528.0">
+         <content>
+            <Label fx:id="photoCaption" text="Full Caption">
+         		<font>
+            		<Font name="System Italic" />
+         		</font>
+      		</Label>
+         </content>
+      </ScrollPane>
       <Button fx:id="addButton" layoutX="120.0" layoutY="662.0" mnemonicParsing="false" onAction="#showAddTagPopup" text="Add tag"/>
       <Button fx:id="deleteButton" layoutX="196.0" layoutY="662.0" mnemonicParsing="false" onAction="#deleteTag" text="Delete tag"/>
-     <!-- <Label fx:id="photoTags" layoutX="75.0" layoutY="584.0" text="Example Tag: Example Tag Value">
-         <font>
-            <Font name="System Italic" />
-         </font>
-      </Label> -->
       <ScrollPane layoutX="36.0" layoutY="574.0" prefHeight="80.0" prefWidth="528.0">
          <content>
             <FlowPane fx:id="tagPairs" hgap="20.0" prefWidth="512.0" vgap="10.0" />
