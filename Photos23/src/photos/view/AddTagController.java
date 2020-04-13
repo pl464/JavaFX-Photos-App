@@ -60,7 +60,14 @@ public class AddTagController {
 			alert.showAndWait();
 			return;
 		}
-		if (photoDisplayController.addTag(currTag, tagValue.getText().trim()) == false) {
+		int ret = photoDisplayController.addTag(currTag, tagValue.getText().trim());
+		if (ret == 1) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Cannot have more than one value for this tag.");
+			alert.showAndWait();
+			return;
+		}
+		else if (ret == -1) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setContentText("Tag-value pair already exists.");
 			alert.showAndWait();

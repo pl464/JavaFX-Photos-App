@@ -125,21 +125,22 @@ public class PhotoDisplayController extends Controller {
 		sceneManager.openScene("Edit_Caption_Popup.fxml", this);
 	}
 	
-	public boolean addTag(String tagName, String tagVal) {
-		if (currUser.pictures.get(currPhoto).tags.containsKey(tagName)) {
-			if (currUser.pictures.get(currPhoto).tags.get(tagName).contains(tagVal)) {
-				return false;
+	public int addTag(String tagName, String tagVal) {
+		if (currUser.pictures.get(currPhoto).tags.containsKey(tagName)) { //if photo already uses this tag name
+			if (currUser.tagnames.get(tagName)) { //if tag type allows only one value per photo
+				return 1;
 			}
-			else {
-				currUser.pictures.get(currPhoto).tags.get(tagName).add(tagVal);
-				displaySingle();
-				return true;
+			if (currUser.pictures.get(currPhoto).tags.get(tagName).contains(tagVal)) { //if photo already has this tag-value pair
+				return -1;
 			}
+			currUser.pictures.get(currPhoto).tags.get(tagName).add(tagVal);
+			displaySingle();
+			return 0;
 		}
 		currUser.pictures.get(currPhoto).tags.put(tagName, new ArrayList<String>());
 		currUser.pictures.get(currPhoto).tags.get(tagName).add(tagVal);
 		displaySingle();
-		return true;
+		return 0;
 	}
 	
 	@FXML
