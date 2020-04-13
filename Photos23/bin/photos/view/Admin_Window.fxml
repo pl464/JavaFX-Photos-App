@@ -6,17 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="531.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.AdminController">
+<AnchorPane prefHeight="530.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.view.AdminController">
    <children>
-      <Label layoutX="23.0" layoutY="22.0" text="Admin">
+      <Label layoutX="23.0" layoutY="22.0" text="User List">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
-      <Button fx:id="logoutButton" layoutX="301.0" layoutY="22.0" mnemonicParsing="false" onAction="#logout" prefHeight="39.0" prefWidth="83.0" text="Logout" />
-      <Button fx:id="addButton" layoutX="96.0" layoutY="452.0" mnemonicParsing="false" onAction="#addPopup" prefHeight="39.0" prefWidth="91.0" text="Add" />
-      <Button fx:id="removeButton" layoutX="210.0" layoutY="452.0" mnemonicParsing="false" onAction="#removeUser" prefHeight="39.0" prefWidth="91.0" text="Remove" />
-      <ListView fx:id="userList" layoutX="38.0" layoutY="96.0" prefHeight="334.0" prefWidth="331.0" />
-      <Label layoutX="38.0" layoutY="69.0" text="Users:" />
+      <Button fx:id="logoutButton" layoutX="314.0" layoutY="36.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <Button fx:id="addButton" layoutX="40.0" layoutY="478.0" mnemonicParsing="false" onAction="#addPopup" text="Add" />
+      <Button fx:id="removeButton" layoutX="90.0" layoutY="478.0" mnemonicParsing="false" onAction="#removeUser" text="Remove" />
+      <ListView fx:id="userList" layoutX="38.0" layoutY="86.0" prefHeight="370.0" prefWidth="330.0" />
    </children>
 </AnchorPane>

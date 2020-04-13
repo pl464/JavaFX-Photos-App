@@ -144,9 +144,10 @@ public class MyAlbumsController extends Controller{
 	}
 	
 	//currently DOES NOT search albums. for testing purposes, prints out tagnames and albumnames.
-	@FXML private void searchAlbums(ActionEvent e) {
-		currUser.tagnames.keySet().forEach((tag)->System.out.println(tag));
-		currUser.albums.forEach((k,v)->System.out.println(k));
+
+	@FXML private void searchAlbums(ActionEvent e) throws Exception {
+		setAlbumScope(false);
+		sceneManager.switchScene("Search_Window.fxml", users);
 	}
 
 	@FXML 
