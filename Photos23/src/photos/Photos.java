@@ -12,7 +12,7 @@ import photos.view.SceneManager;
 
 /**
  * Main class for starting and stopping the Photos application.
- * @author patle
+ * @author Patrick Lee
  *
  */
 public class Photos extends Application {
@@ -23,13 +23,13 @@ public class Photos extends Application {
 	/**
 	 * The SceneManager for this application, which handles switching between scenes.
 	 */
-	SceneManager sceneManager;
+	static SceneManager sceneManager;
 	/**
 	 * A HashMap to store all user information in the application.
 	 */
 	static HashMap<String, User> users;
 	/**
-	 * AnchorPane to act as the base element of the main stage's Scene.
+	 * The AnchorPane acting as the base element of the main stage's Scene.
 	 */
 	AnchorPane pane;
 	

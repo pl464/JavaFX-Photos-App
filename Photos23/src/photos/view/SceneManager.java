@@ -16,20 +16,30 @@ import photos.User;
 /**
  * This class handles switching between the various windows of the application. 
  * It also attempts to act as an intermediary between different Controller instances.
- * @author patle
+ * @author Patrick
  *
  */
 public class SceneManager {
+	/**
+	 * The main stage for the application.
+	 */
     Stage mainStage;
+    /**
+     * The AnchorPane acting as the base element of the main stage's Scene.
+     */
     AnchorPane pane;
-    
+    /**
+     * The constructor for the SceneManager.
+     * @param mainStage The Stage to be used for the main UI scenes.
+     */
     public SceneManager(Stage mainStage) {
         this.mainStage = mainStage;
     }
     
     /**
      * Switches the scene, controller, and stage given the name of an FXML file.
-     * @param fxml
+     * @param fxml The FXML file of the target scene.
+     * @param users The current HashMap of users' data.
      * @throws Exception
      */
     public void switchScene(String fxml, HashMap<String, User> users) throws Exception {
@@ -83,7 +93,12 @@ public class SceneManager {
 		mainStage.show();
 		mainStage.centerOnScreen();
     }
-    
+    /**
+     * Opens another scene without closing the main scene. 
+     * @param fxml The FXML of the target scene.
+     * @param controller The controller of the calling ("parent") scene, which remains open.
+     * @throws Exception
+     */
     public void openScene(String fxml, Controller controller) throws Exception {
     	String title = "";
     	FXMLLoader loader = new FXMLLoader();
@@ -158,7 +173,11 @@ public class SceneManager {
 		window.show();
 		window.centerOnScreen();
     }
-    
+    /**
+     * Sets the users' data for the application to the data serialized in users.dat.
+     * @return A HashMap of usernames mapping to each user's data.
+     * @throws Exception
+     */
     public HashMap<String, User> readUsers() throws Exception{
     	ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/users.dat"));
 		@SuppressWarnings("unchecked")
@@ -166,7 +185,11 @@ public class SceneManager {
 		ois.close();
 		return users;
     }
-    
+    /**
+     * Serializes the current users' data into the users.dat file.
+     * @param users
+     * @throws Exception
+     */
     public void writeUsers(HashMap<String, User> users) throws Exception {
     	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("data/users.dat"));
 		oos.writeObject(users);

@@ -74,7 +74,7 @@ public class NewAlbumController {
 		}
 		cancelButton.fire();
 	}
-	
+
 	/**
 	* Method to close the popup.
 	* @param e The event that triggered this method.

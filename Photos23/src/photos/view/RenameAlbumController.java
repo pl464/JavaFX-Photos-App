@@ -55,7 +55,7 @@ public class RenameAlbumController {
 		}
 		cancelButton.fire();
 	}
-	
+
 	/**
 	* Method to close the popup.
 	* @param e The event that triggered this method.
