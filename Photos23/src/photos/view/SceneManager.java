@@ -125,10 +125,11 @@ public class SceneManager {
 				editCaptionController.setParentController((PhotoDisplayController)controller);
 				title = "Edit Caption";
 				break;
-			case "Edit_Tags_Popup.fxml":
-				EditTagsController editTagsController = loader.getController();
-				editTagsController.setParentController((PhotoDisplayController)controller);
-				title = "Edit Tags";
+			case "Add_Tag_Popup.fxml":
+				AddTagController addTagController = loader.getController();
+				addTagController.setParentController((PhotoDisplayController)controller);
+				title = "Add Tag";
+				addTagController.setTags();
 				break;
 			case "Copy_Photo_Popup.fxml":
 				CopyPhotoController copyPhotoController = loader.getController();

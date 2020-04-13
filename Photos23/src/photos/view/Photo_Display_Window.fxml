@@ -20,8 +20,8 @@
             <Font name="System Italic" />
          </font>
       </Label>
-      <Button fx:id="addButton" layoutX="120.0" layoutY="662.0" mnemonicParsing="false" onAction="#showEditTagsPopup" text="Add tag"/>
-      <Button fx:id="deleteButton" layoutX="196.0" layoutY="662.0" mnemonicParsing="false" onAction="#showEditTagsPopup" text="Delete tag"/>
+      <Button fx:id="addButton" layoutX="120.0" layoutY="662.0" mnemonicParsing="false" onAction="#showAddTagPopup" text="Add tag"/>
+      <Button fx:id="deleteButton" layoutX="196.0" layoutY="662.0" mnemonicParsing="false" onAction="#deleteTag" text="Delete tag"/>
      <!-- <Label fx:id="photoTags" layoutX="75.0" layoutY="584.0" text="Example Tag: Example Tag Value">
          <font>
             <Font name="System Italic" />
@@ -29,7 +29,7 @@
       </Label> -->
       <ScrollPane layoutX="36.0" layoutY="574.0" prefHeight="80.0" prefWidth="528.0">
          <content>
-            <FlowPane fx:id="tagPairs" hgap="20.0" vgap="20.0" />
+            <FlowPane fx:id="tagPairs" hgap="20.0" prefWidth="512.0" vgap="10.0" />
          </content>
       </ScrollPane>
       <Label fx:id="photoDate" layoutX="75.0" layoutY="34.0" text="Date: MM/DD/YYYY">
