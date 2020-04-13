@@ -120,15 +120,15 @@ public class SceneManager {
 				}
 				title = "Add Tag";
 				break;
-		   case "New_Album_Popup.fxml":
-			   NewAlbumController newAlbumController = loader.getController();
-			   if (controller.getClass().toString().equals("class photos.view.MyAlbumsController")) {
-			   newAlbumController.setParentController((MyAlbumsController)controller);
-			   } else {
-			   newAlbumController.setParentController((SearchController)controller);
-			   }
-			   title = "Add Album";
-			   break;
+			case "New_Album_Popup.fxml":
+				NewAlbumController newAlbumController = loader.getController();
+				if (controller.getClass().toString().equals("class photos.view.MyAlbumsController")) {
+					newAlbumController.setParentController((MyAlbumsController) controller);
+				} else {
+					newAlbumController.setParentController((SearchController) controller);
+				}
+				title = "Add Album";
+				break;
 			case "Rename_Album_Popup.fxml":
 				RenameAlbumController renameAlbumController = loader.getController();
 				renameAlbumController.setParentController((MyAlbumsController)controller);
