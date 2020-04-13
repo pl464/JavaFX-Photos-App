@@ -16,8 +16,17 @@ import photos.view.SceneManager;
  *
  */
 public class Photos extends Application {
+	/**
+	 * The main stage for this application.
+	 */
 	Stage mainStage;
+	/**
+	 * The SceneManager for this application, which handles switching between scenes.
+	 */
 	SceneManager sceneManager;
+	/**
+	 * A HashMap to store all user information in the application.
+	 */
 	static HashMap<String, User> users;
 	AnchorPane pane;
 	
