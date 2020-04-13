@@ -15,7 +15,7 @@ import photos.User;
 
 /**
  * This class handles switching between the various windows of the application. 
- * It also attempts to act as an intermediary between different Controller instances.
+ * It also acts as an intermediary between different Controller instances.
  * @author patle
  *
  */
