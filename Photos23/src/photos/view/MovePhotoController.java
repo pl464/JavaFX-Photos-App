@@ -23,20 +23,44 @@ import photos.Picture;
 
 public class MovePhotoController {
 
-	@FXML private MenuButton chooseButton;
+	@FXML private MenuButton albumMenu;
 	@FXML private Button okButton;
 	@FXML private Button cancelButton;
 	
 	PhotoDisplayController photoDisplayController;
+	String chosenAlbum;
 	
 	public void setParentController(PhotoDisplayController photoDisplayController) {
 		this.photoDisplayController = photoDisplayController;
 		return;
 	}
 	
+	public void setAlbums() {
+		for (String albumName : Controller.currUser.albums.keySet()) {
+			MenuItem item = new MenuItem(albumName);
+			item.setOnAction(e->{
+				albumMenu.setText(albumName);
+				chosenAlbum = albumName;
+			});
+			albumMenu.getItems().add(item);
+		}
+	}
+	
 	@FXML
-	private void movePhoto(ActionEvent e) {
-		
+	private void movePhoto(ActionEvent e) throws Exception {
+		if (chosenAlbum == null) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Please choose an album.");
+			alert.showAndWait();
+			return;
+		}
+		if (photoDisplayController.movePhoto(chosenAlbum) == false) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Chosen album already has this photo.");
+			alert.showAndWait();
+			return;
+		}
+		cancelButton.fire();
 	}
 	
 	@FXML

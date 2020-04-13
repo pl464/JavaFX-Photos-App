@@ -30,19 +30,16 @@ public class PhotoDisplayController extends Controller {
 	@FXML private FlowPane tagPairs;
 	@FXML private Label photoDate;
 	@FXML private Label photoCaption;
-	//@FXML private Label photoTags;
 	@FXML private Button backButton;
 	@FXML private Button logoutButton;
 	@FXML private Button previousButton;
 	@FXML private Button nextButton;
 	@FXML private Button captionButton;
-	//@FXML private Button tagsButton;
 	@FXML private Button addButton;
 	@FXML private Button deleteButton;
 	@FXML private Button copyButton;
 	@FXML private Button moveButton;
 	
-	//field acting as the selection model
 	public static String currName = "";
 	public static String currVal = "";
 	
@@ -168,9 +165,30 @@ public class PhotoDisplayController extends Controller {
 		currVal = "";
 	}
 	
+	public boolean copyPhoto(String otherAlbum) throws Exception {
+		if (currUser.albums.get(otherAlbum).contains(currPhoto)) {
+			return false;
+		}
+		currUser.albums.get(otherAlbum).add(currPhoto);
+		setCurrAlbum(otherAlbum);
+		sceneManager.switchScene("Album_Display_Window.fxml", users);
+		return true;
+	}
+	
 	@FXML
 	private void showCopyPhotoPopup(ActionEvent e) throws Exception {
 		sceneManager.openScene("Copy_Photo_Popup.fxml", this);
+	}
+	
+	public boolean movePhoto(String otherAlbum) throws Exception {
+		if (currUser.albums.get(otherAlbum).contains(currPhoto)) {
+			return false;
+		}
+		currUser.albums.get(otherAlbum).add(currPhoto);
+		currUser.albums.get(currAlbum).remove(currPhoto);
+		setCurrAlbum(otherAlbum);
+		sceneManager.switchScene("Album_Display_Window.fxml", users);
+		return true;
 	}
 	
 	@FXML
