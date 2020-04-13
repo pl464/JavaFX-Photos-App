@@ -100,7 +100,7 @@ public class SearchController extends Controller{
 				return;
 			}
 			LocalDateTime LDT1 = date1.atStartOfDay();
-			LocalDateTime LDT2 = date2.atStartOfDay();
+			LocalDateTime LDT2 = date2.atTime(23, 59, 59);
 			results = searchByDate(LDT1, LDT2, albumScope);
 		} 
 		
