@@ -54,9 +54,6 @@ public class SearchController extends Controller{
 	@FXML private ToggleGroup searchParamGroup;
 	@FXML private ToggleGroup booleanGroup;
 	@FXML private FlowPane previews;
-
-	//field acting as the selection model
-	public static Label selected; 
 	
 	String currTag1;
 	String currTag2;
@@ -100,7 +97,7 @@ public class SearchController extends Controller{
 				return;
 			}
 			LocalDateTime LDT1 = date1.atStartOfDay();
-			LocalDateTime LDT2 = date2.atStartOfDay();
+			LocalDateTime LDT2 = date2.atTime(23, 59, 59);
 			results = searchByDate(LDT1, LDT2, albumScope);
 		} 
 		
@@ -136,7 +133,7 @@ public class SearchController extends Controller{
 		
 		//display results in the FlowPane
 		results.forEach((filePath)->{
-			Image image = new Image(filePath, 166, 166, false ,false);
+			Image image = new Image(filePath, 112, 0, true ,false);
 			ImageView newImage = new ImageView(image);
 			String cap = currUser.pictures.get(filePath).caption;
 			displayPhoto(cap, newImage, filePath);
@@ -201,19 +198,11 @@ public class SearchController extends Controller{
 	}
 	
 	public void displayPhoto(String cap, ImageView image, String filePath) {
-		if (cap.length() > 26) cap = cap.substring(0, 26) + "...";
+		if (cap.length() > 12) cap = cap.substring(0, 12) + "...";
 		else if (cap.length() == 0) cap = "(no caption)";
 		
 		Label preview = new Label(cap, image);
 		preview.setContentDisplay(ContentDisplay.TOP);
-		preview.setOnMouseClicked(e->{
-			previews.getChildren().forEach((c)->{
-				((Label)c).setBorder(new Border(new BorderStroke(new Color(0,0,0,0), BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
-			});
-			preview.setBorder(new Border(new BorderStroke(Color.SKYBLUE, BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
-			selected = preview;
-			selected.setUserData(filePath);
-		});
 		preview.setBorder(new Border(new BorderStroke(new Color(0,0,0,0), BorderStrokeStyle.SOLID, null, new BorderWidths(2))));
 		previews.getChildren().add(preview);
 	}
@@ -225,11 +214,7 @@ public class SearchController extends Controller{
 		}
 		ArrayList<String> newAlbumResults = results;
 		currUser.albums.put(albumName, newAlbumResults);
-		if (albumScope == true) {
-			sceneManager.switchScene("Album_Display_Window.fxml", users);
-		} else {
-			sceneManager.switchScene("My_Albums_Window.fxml", users);
-		}
+		sceneManager.switchScene("My_Albums_Window.fxml", users);
 		return true;
 	}
 	
@@ -270,6 +255,12 @@ public class SearchController extends Controller{
 	}
 	@FXML
 	private void displayNewAlbumPopup(ActionEvent e) throws Exception {
+		if (results == null || results.size() == 0) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Cannot create an album without search results.");
+			alert.showAndWait();
+			return;
+		}
 		sceneManager.openScene("New_Album_Popup.fxml", this);
 	}
 	@FXML

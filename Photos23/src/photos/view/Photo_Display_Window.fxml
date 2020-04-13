@@ -37,9 +37,9 @@
       </Label>
       <Button fx:id="copyButton" layoutX="396.0" layoutY="662.0" mnemonicParsing="false" onAction="#showCopyPhotoPopup" text="Copy Photo" />
       <Button fx:id="moveButton" layoutX="486.0" layoutY="662.0" mnemonicParsing="false" onAction="#showMovePhotoPopup" text="Move Photo" />
-      <HBox alignment="CENTER" layoutX="60.0" layoutY="62.0" prefHeight="466.0" prefWidth="496.0">
+      <HBox alignment="CENTER" layoutX="62.0" layoutY="60.0" prefHeight="460.0" prefWidth="474.0">
          <children>
-            <ImageView fx:id="photoImage" fitHeight="466.0" fitWidth="490.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="photoImage" fitHeight="460.0" fitWidth="474.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
    </children>

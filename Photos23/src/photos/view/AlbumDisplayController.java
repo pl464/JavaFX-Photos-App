@@ -39,6 +39,7 @@ public class AlbumDisplayController extends Controller {
 	
 	public void displayPhotos() {
 		albumName.setText(currAlbum);
+		selected = null;
 		previews.getChildren().clear();
 		previews.setOnMouseClicked(e->{
 			viewButton.requestFocus();
