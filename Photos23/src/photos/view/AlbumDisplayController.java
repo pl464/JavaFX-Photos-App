@@ -43,7 +43,7 @@ public class AlbumDisplayController extends Controller {
 			viewButton.requestFocus();
 		});
 		currUser.albums.get(currAlbum).forEach((k)->{
-			Image image = new Image(k, 166, 166, false ,false);
+			Image image = new Image(k, 166, 166, true ,false);
 			ImageView newImage = new ImageView(image);
 			
 			String cap = currUser.pictures.get(k).caption;
@@ -75,7 +75,7 @@ public class AlbumDisplayController extends Controller {
 			return false;
 		}
 		currUser.albums.get(currAlbum).add(file.toURI().toString());
-		Image image = new Image(file.toURI().toString(), 166, 166, false ,false); 
+		Image image = new Image(file.toURI().toString(), 166, 166, true ,false); 
 		ImageView newImage = new ImageView(image);
 		displayPhoto("", newImage, file.toURI().toString());
 				
