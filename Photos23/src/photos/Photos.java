@@ -10,12 +10,21 @@ import photos.view.Controller;
 import photos.view.LoginController;
 import photos.view.SceneManager;
 
+/**
+ * Main class for starting and stopping the Photos application.
+ * @author patle
+ *
+ */
 public class Photos extends Application {
 	Stage mainStage;
 	SceneManager sceneManager;
 	static HashMap<String, User> users;
 	AnchorPane pane;
 	
+	/**
+	 * Starts the application by setting the UI to the login window.
+	 * @param stage The stage that will act as the main stage of the application
+	 */
 	@Override
 	public void start(Stage stage) throws Exception {
 		sceneManager = new SceneManager(stage);
@@ -34,15 +43,20 @@ public class Photos extends Application {
 		mainStage.setScene(scene);
 		mainStage.show();
 		mainStage.centerOnScreen();
-		//Initializer.initialize();
 	}
 
+	/**
+	 * Ends the application with a write to the save file.
+	 */
 	@Override
 	public void stop() throws Exception {
-		//System.out.println("Application stopped");
 		sceneManager.writeUsers(Controller.users);
 	}
 	
+	/**
+	 * Main method for the application.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
