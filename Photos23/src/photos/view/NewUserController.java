@@ -5,11 +5,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
+/**
+ * The controller class of the New User Pop window.
+ * @author Patrick Lee
+ *
+ */
 public class NewUserController {
+	/**
+	 * The parent (calling) controller to be referenced once this window is done.
+	 */
 	AdminController adminController; //the calling controller 
 	
 	@FXML
@@ -19,10 +25,19 @@ public class NewUserController {
 	@FXML
 	private Button cancelButton;
 	
+	/**
+	 * Sets the parent controller to be referenced once this window is done.
+	 * @param adminController
+	 */
 	public void setParentController(AdminController adminController) {
 		this.adminController = adminController;
 		return;
 	}
+	/**
+	 * Handles the calling of addUser() in the parent controller.
+	 * @param e The event that triggered this method.
+	 * @throws Exception
+	 */
 	@FXML
 	private void addUser(ActionEvent e) throws Exception {
 		if (username.getText().trim().isEmpty()) {

@@ -6,15 +6,23 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 
+/**
+ * The controller class for the Login Window. 
+ * @author Patrick Lee
+ *
+ */
 public class LoginController extends Controller{
-	@FXML 
-	private Button loginButton;
-	@FXML 
-	private TextField username;
+
+	@FXML private Button loginButton;
+	@FXML private TextField username;
 	
+	/**
+	 * Logs the user in, using the username from the TextField. If successful, passes control to the
+	 * MyAlbums window of the user.
+	 * @param e The event that triggered this event.
+	 * @throws Exception
+	 */
 	@FXML
 	private void login(ActionEvent e) throws Exception {
 		if (username.getText().equals("admin")){
@@ -30,12 +38,4 @@ public class LoginController extends Controller{
 			alert.showAndWait();
 		}
 	}
-	
-	@FXML
-	private void keyPressed(KeyEvent keyEvent) {
-	    if (keyEvent.getCode() == KeyCode.ENTER) {
-	        loginButton.fire();
-	    }
-	}
-	
 }
