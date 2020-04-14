@@ -238,42 +238,42 @@ public class MyAlbumsController extends Controller{
 		}
 		/**
 		 * Gets the name of the album.
-		 * @return
+		 * @return The name of the album.
 		 */
 		public String getName() {
 			return name;
 		}
 		/**
 		 * Sets the name of the album.
-		 * @param name
+		 * @param name The name of the album.
 		 */
 		public void setName(String name) {
 			this.name = name;
 		}
 		/**
 		 * Gets the number of photos in this album.
-		 * @return
+		 * @return The number of photos in the album.
 		 */
 		public int getNumPhotos() {
 			return numPhotos;
 		}
 		/**
 		 * Sets the number of photos in this album.
-		 * @param numPhotos
+		 * @param numPhotos The number of photos in the album.
 		 */
 		public void setNumPhotos(int numPhotos) {
 			this.numPhotos = numPhotos;
 		}
 		/**
 		 * Gets the date range of this album.
-		 * @return
+		 * @return The date range of this album.
 		 */
 		public String getDateRange() {
 			return dateRange;
 		}
 		/**
 		 * Sets the date range of this album.
-		 * @param dateRange
+		 * @param dateRange The date range of this album.
 		 */
 		public void setDateRange(String dateRange) {
 			this.dateRange = dateRange;

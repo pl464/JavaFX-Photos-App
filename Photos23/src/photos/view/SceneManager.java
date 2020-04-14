@@ -187,7 +187,7 @@ public class SceneManager {
     }
     /**
      * Serializes the current users' data into the users.dat file.
-     * @param users
+     * @param users The HashMap of user data to be serialized.
      * @throws Exception
      */
     public void writeUsers(HashMap<String, User> users) throws Exception {

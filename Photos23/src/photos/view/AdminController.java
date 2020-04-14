@@ -49,8 +49,8 @@ public class AdminController extends Controller{
 	}
 	/**
 	 * Adds a new User to the list of users with the given username, and displays this in the ListView.
-	 * @param username
-	 * @return
+	 * @param username 
+	 * @return True if the user was added successfully, false otherwise.
 	 * @throws Exception
 	 */
 	public boolean addUser(String username) throws Exception {
@@ -64,7 +64,7 @@ public class AdminController extends Controller{
 	}
 	/**
 	 * Displays the "popup" UI for adding a new user.
-	 * @param e
+	 * @param e The event that triggered this method.
 	 * @throws Exception
 	 */
 	@FXML
@@ -73,7 +73,7 @@ public class AdminController extends Controller{
 	}
 	/**
 	 * Removes the selected user from the list of Users, and displays this in the ListView.
-	 * @param e
+	 * @param e The event that triggered this method.
 	 */
 	@FXML
 	private void removeUser(ActionEvent e) {

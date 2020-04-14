@@ -39,7 +39,7 @@ public class AlbumDisplayController extends Controller {
 	/**
 	 * A field to keep track of the currently selected image/caption preview.
 	 */
-	public static Label selected; 
+	static Label selected; 
 	/**
 	 * Displays a preview of the photo and its caption of each photo in this album.
 	 */
@@ -84,7 +84,7 @@ public class AlbumDisplayController extends Controller {
 	/**
 	 * Adds a new photo to the album given its file path, and displays its preview in this window.
 	 * @param file
-	 * @return
+	 * @return True if the photo was added successfully, false otherwise.
 	 */
 	public boolean addNewPhoto(File file) {
 		//first, add to the current user's album, if it doesn't exist already
@@ -145,7 +145,7 @@ public class AlbumDisplayController extends Controller {
 	}
 	/**
 	 * Switches the scene back to the MyAlbums window.
-	 * @param e
+	 * @param e The event that triggered this method.
 	 * @throws Exception
 	 */
 	@FXML
