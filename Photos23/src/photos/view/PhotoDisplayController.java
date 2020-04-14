@@ -1,14 +1,10 @@
 package photos.view;
 
-import java.io.File;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Optional;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -18,15 +14,16 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import photos.Picture;
 
+/**
+* @author Lance Luo
+* Class to represent the photo display window.
+*/
 public class PhotoDisplayController extends Controller {
 	
 	@FXML private ImageView photoImage;
@@ -43,9 +40,18 @@ public class PhotoDisplayController extends Controller {
 	@FXML private Button copyButton;
 	@FXML private Button moveButton;
 	
+	/**
+	 * The selected tag name.
+	 */
 	public static String currName = "";
+	/**
+	 * The selected tag value.
+	 */
 	public static String currVal = "";
 	
+	/**
+	* Method to display a photo along with its caption and tags.
+	*/
 	public void displaySingle() {
 		tagPairs.getChildren().clear();
 		tagPairs.setOnMouseClicked(e->{
@@ -70,6 +76,11 @@ public class PhotoDisplayController extends Controller {
 		}
 	}
 	
+	/**
+	* Method to display a tag and select it if clicked.
+	* @param name The tag name to display.
+	* @param val The tag value to display.
+	*/
 	public void displayTag(String name, String val) {
 		Label pair = new Label(name + ": " + val);
 		pair.setContentDisplay(ContentDisplay.TOP);
@@ -85,16 +96,30 @@ public class PhotoDisplayController extends Controller {
 		tagPairs.getChildren().add(pair);
 	}
 	
+	/**
+	* Method to return to the previous screen.
+	* @param e The event that triggered this method.
+	* @throws Exception
+	*/
 	@FXML
 	private void goBack(ActionEvent e) throws Exception {
 		sceneManager.switchScene("Album_Display_Window.fxml", users);
 	}
 	
+	/**
+	* Method to return to the login screen.
+	* @param e The event that triggered this method.
+	* @throws Exception
+	*/
 	@FXML
 	private void logout(ActionEvent e) throws Exception {
 		sceneManager.switchScene("Login_Window.fxml", users);
 	}
 	
+	/**
+	* Method to display the previous photo in this album.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void displayPrevious(ActionEvent e) {
 		int index = currUser.albums.get(currAlbum).indexOf(currPhoto);
@@ -105,6 +130,10 @@ public class PhotoDisplayController extends Controller {
 		displaySingle();
 	}
 	
+	/**
+	* Method to display the next photo in this album.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void displayNext(ActionEvent e) {
 		int index = currUser.albums.get(currAlbum).indexOf(currPhoto);
@@ -115,16 +144,31 @@ public class PhotoDisplayController extends Controller {
 		displaySingle();
 	}
 	
-	public void editCaption(String s) {
-		currUser.pictures.get(currPhoto).caption = s;
+	/**
+	* Method to edit a photo's caption.
+	* @param cap The new caption.
+	*/
+	public void editCaption(String cap) {
+		currUser.pictures.get(currPhoto).caption = cap;
 		displaySingle();
 	}
 	
+	/**
+	* Method to show the edit caption popup.
+	* @param e The event that triggered this method.
+	* @throws Exception
+	*/
 	@FXML
 	private void showEditCaptionPopup(ActionEvent e) throws Exception {
 		sceneManager.openScene("Edit_Caption_Popup.fxml", this);
 	}
 	
+	/**
+	* Method to add a tag to this photo.
+	* @param tagName The tag name to add.
+	* @param tagVal The tag value to add.
+	* @return -1 if tag-value pair exists, 1 if tag type is single and another value exists, 0 if successful
+	*/
 	public int addTag(String tagName, String tagVal) {
 		if (currUser.pictures.get(currPhoto).tags.containsKey(tagName)) { //if photo already uses this tag name
 			if (currUser.tagnames.get(tagName)) { //if tag type allows only one value per photo
@@ -143,11 +187,20 @@ public class PhotoDisplayController extends Controller {
 		return 0;
 	}
 	
+	/**
+	* Method to show the add tag popup.
+	* @param e The event that triggered this method.
+	* @throws Exception
+	*/
 	@FXML
 	private void showAddTagPopup(ActionEvent e) throws Exception {
 		sceneManager.openScene("Add_Tag_Popup.fxml", this);
 	}
 	
+	/**
+	* Method to delete a tag from this photo.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void deleteTag(ActionEvent e) {
 		if (currName.trim().isEmpty()) {
@@ -168,6 +221,12 @@ public class PhotoDisplayController extends Controller {
 		currVal = "";
 	}
 	
+	/**
+	* Method to copy the photo to another album.
+	* @param otherAlbum The album that the photo will be copied to.
+	* @return False if other album already contains the photo, true otherwise.
+	* @throws Exception
+	*/
 	public boolean copyPhoto(String otherAlbum) throws Exception {
 		if (currUser.albums.get(otherAlbum).contains(currPhoto)) {
 			return false;
@@ -178,11 +237,22 @@ public class PhotoDisplayController extends Controller {
 		return true;
 	}
 	
+	/**
+	* Method to show the copy photo popup.
+	* @param e The event that triggered this method.
+	* @throws Exception
+	*/
 	@FXML
 	private void showCopyPhotoPopup(ActionEvent e) throws Exception {
 		sceneManager.openScene("Copy_Photo_Popup.fxml", this);
 	}
 	
+	/**
+	* Method to move the photo to another album.
+	* @param otherAlbum The album that the photo will be moved to.
+	* @return False if other album already contains the photo, true otherwise.
+	* @throws Exception
+	*/
 	public boolean movePhoto(String otherAlbum) throws Exception {
 		if (currUser.albums.get(otherAlbum).contains(currPhoto)) {
 			return false;
@@ -194,6 +264,11 @@ public class PhotoDisplayController extends Controller {
 		return true;
 	}
 	
+	/**
+	* Method to show the move photo popup.
+	* @param e The event that triggered this method.
+	* @throws Exception
+	*/
 	@FXML
 	private void showMovePhotoPopup(ActionEvent e) throws Exception {
 		sceneManager.openScene("Move_Photo_Popup.fxml", this);

@@ -11,6 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
+/**
+* @author Lance Luo
+* Class to represent the add tag popup.
+*/
 public class AddTagController {
 	
 	@FXML private Button cancelButton;
@@ -18,14 +22,27 @@ public class AddTagController {
 	@FXML private MenuButton tagMenu;
 	@FXML private TextField tagValue;
 	
+	/**
+	 * The calling controller.
+	 */
 	PhotoDisplayController photoDisplayController;
+	/**
+	 * The selected menu item.
+	 */
 	String currTag;
 	
+	/**
+	* Method to set the calling controller.
+	* @param photoDisplayController The controller that called this class.
+	*/
 	public void setParentController(PhotoDisplayController photoDisplayController) {
 		this.photoDisplayController = photoDisplayController;
 		return;
 	}
 	
+	/**
+	* Method to show the list of tags in the menu.
+	*/
 	public void setTags() {
 		HashMap<String, Boolean> tagnames = Controller.currUser.tagnames;
 		tagnames.keySet().forEach((tag)->{
@@ -39,6 +56,10 @@ public class AddTagController {
 		});
 	}
 	
+	/**
+	* Method to call addTag in the parent controller.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void addTag(ActionEvent e) {
 		if (currTag == null) {
@@ -69,6 +90,10 @@ public class AddTagController {
 		cancelButton.fire();
 	}
 	
+	/**
+	* Method to close the popup.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();

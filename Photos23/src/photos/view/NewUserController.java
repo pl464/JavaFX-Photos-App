@@ -1,4 +1,10 @@
 package photos.view;
+
+/**
+* @author Lance Luo
+* @author Patrick Lee
+* Class to represent the new user popup.
+*/
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -18,26 +24,24 @@ public class NewUserController {
 	 */
 	AdminController adminController; //the calling controller 
 	
-	@FXML
-	private TextField username;
-	@FXML
-	private Button okButton;
-	@FXML
-	private Button cancelButton;
+	@FXML private TextField username;
+	@FXML private Button okButton;
+	@FXML private Button cancelButton;
 	
 	/**
-	 * Sets the parent controller to be referenced once this window is done.
-	 * @param adminController
-	 */
+	* Method to set the calling controller.
+	* @param adminController The controller that called this class.
+	*/
 	public void setParentController(AdminController adminController) {
 		this.adminController = adminController;
 		return;
 	}
+	
 	/**
-	 * Handles the calling of addUser() in the parent controller.
-	 * @param e The event that triggered this method.
-	 * @throws Exception
-	 */
+	* Method to call addUser in the parent controller.
+	* @param e The event that triggered this method.
+	* @throws Exception
+	*/
 	@FXML
 	private void addUser(ActionEvent e) throws Exception {
 		if (username.getText().trim().isEmpty()) {
@@ -54,10 +58,11 @@ public class NewUserController {
 		}
 		cancelButton.fire();
 	}
+
 	/**
-	 * Closes this scene and returns control to the parent scene. 
-	 * @param e The event that triggered this method.
-	 */
+	* Method to close the popup.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();

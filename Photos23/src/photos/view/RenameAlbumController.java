@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 /**
  * The controller class for the Rename Album Popup window.
  * @author Patrick Lee
- *
  */
 public class RenameAlbumController {
 	/**
@@ -48,7 +47,7 @@ public class RenameAlbumController {
 			alert.showAndWait();
 			return;
 		}
-		if (myAlbumsController.renameAlbum(albumName.getText()) == false) {
+		if (myAlbumsController.renameAlbum(albumName.getText().trim()) == false) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setContentText("Album by that name already exists.");
 			alert.showAndWait();
@@ -56,10 +55,11 @@ public class RenameAlbumController {
 		}
 		cancelButton.fire();
 	}
+
 	/**
-	 * Closes this scene and returns control to the parent scene. 
-	 * @param e The event that triggered this method.
-	 */
+	* Method to close the popup.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();

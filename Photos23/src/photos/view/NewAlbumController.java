@@ -25,17 +25,14 @@ public class NewAlbumController {
 	 */
 	SearchController searchController;
 
-	@FXML
-	private TextField albumName;
-	@FXML
-	private Button okButton;
-	@FXML
-	private Button cancelButton;
-	
+	@FXML private TextField albumName;
+	@FXML private Button okButton;
+	@FXML private Button cancelButton;
+
 	/**
-	 * Sets the parent controller to be referenced once this window is done.
-	 * @param albumsController The controller to be set.
-	 */
+	* Method to set the calling controller if called from the albums window.
+	* @param albumsController The controller that called this class.
+	*/
 	public void setParentController(MyAlbumsController albumsController) {
 		this.myAlbumsController = albumsController;
 		return;
@@ -75,10 +72,11 @@ public class NewAlbumController {
 		}
 		cancelButton.fire();
 	}
+
 	/**
-	 * Closes this scene and returns control to the parent scene. 
-	 * @param e The event that triggered this method.
-	 */
+	* Method to close the popup.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();

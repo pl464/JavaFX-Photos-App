@@ -12,6 +12,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
+<<<<<<< HEAD
  * The controller class for the New Photo Popup window. 
  * @author Patrick Lee
  *
@@ -22,13 +23,13 @@ public class NewPhotoController {
 	@FXML private TextField filePath;
 	@FXML private Button okButton;
 	@FXML private Button cancelButton;
-	
+
 	/**
-	 * The parent (calling) controller to be referenced once this window is done.
+	 * The calling controller.
 	 */
 	AlbumDisplayController albumDisplayController;
 	/**
-	 * The File object of the file selected using the FileChooser in this window.
+	 * The selected photo file.
 	 */
 	File currPicture;
 	
@@ -47,7 +48,7 @@ public class NewPhotoController {
 	 * @throws MalformedURLException
 	 */
 	@FXML
-	private void chooseFile(ActionEvent e) throws MalformedURLException {
+	private void chooseFile(ActionEvent e) throws Exception {
 		FileChooser fileChooser = new FileChooser();
 		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg, *.png)", "*.jpg", "*.png");
 		fileChooser.getExtensionFilters().add(extFilter);
@@ -76,10 +77,11 @@ public class NewPhotoController {
 		}
 		cancelButton.fire();
 	}
+
 	/**
-	 * Closes this scene and returns control to the parent scene. 
-	 * @param e The event that triggered this method.
-	 */
+	* Method to close the popup.
+	* @param e The event that triggered this method.
+	*/
 	@FXML
 	private void closePopup(ActionEvent e) {
 		Stage stage = (Stage) cancelButton.getScene().getWindow();
