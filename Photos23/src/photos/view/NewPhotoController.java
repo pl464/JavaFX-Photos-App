@@ -1,7 +1,6 @@
 package photos.view;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
