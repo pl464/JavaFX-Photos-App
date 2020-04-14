@@ -16,8 +16,8 @@ import photos.User;
 /**
  * This class handles switching between the various windows of the application. 
  * It also attempts to act as an intermediary between different Controller instances.
- * @author Patrick
- *
+ * @author Patrick Lee
+ * @author Lance Luo
  */
 public class SceneManager {
 	/**
@@ -187,7 +187,7 @@ public class SceneManager {
     }
     /**
      * Serializes the current users' data into the users.dat file.
-     * @param users
+     * @param users The HashMap of usernames to user data that will be saved.
      * @throws Exception
      */
     public void writeUsers(HashMap<String, User> users) throws Exception {

@@ -35,7 +35,7 @@ import photos.Picture;
 /**
  * The controller class for the Search Window.
  * @author Patrick Lee
- *
+ * @author Lance Luo
  */
 public class SearchController extends Controller{
 	

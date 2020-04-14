@@ -39,7 +39,7 @@ public class AlbumDisplayController extends Controller {
 	/**
 	 * A field to keep track of the currently selected image/caption preview.
 	 */
-	public static Label selected; 
+	static Label selected; 
 	/**
 	 * Displays a preview of the photo and its caption of each photo in this album.
 	 */
@@ -94,7 +94,8 @@ public class AlbumDisplayController extends Controller {
 		currUser.albums.get(currAlbum).add(file.toURI().toString());
 		Image image = new Image(file.toURI().toString(), 112, 0, true, false);
 		ImageView newImage = new ImageView(image);
-		displayPhoto("", newImage, file.toURI().toString());
+		String cap = (currUser.pictures.containsKey(file.toURI().toString())) ? currUser.pictures.get(file.toURI().toString()).caption : "";
+		displayPhoto(cap, newImage, file.toURI().toString());
 				
 		//then, add to the current user's pictures if it doesn't exist already
 		if (currUser.pictures.keySet().contains(file.toURI().toString())) {

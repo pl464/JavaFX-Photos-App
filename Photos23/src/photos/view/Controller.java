@@ -9,7 +9,7 @@ import photos.User;
  * location, and allows SceneManager to open secondary windows ("pop-ups") by referencing a general controller
  * as the parent controller, rather than requiring separate methods.
  * 
- * @author patle
+ * @author Patrick Lee
  *
  */
 public abstract class Controller {
@@ -49,7 +49,7 @@ public abstract class Controller {
 
 	/**
 	 * Allows user information to be passed into this Controller instance from the SceneManager.
-	 * @param users
+	 * @param users The list of users.
 	 */
 	public void setUsers (HashMap<String, User> userData){
 		users = userData;

@@ -12,7 +12,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
-<<<<<<< HEAD
  * The controller class for the New Photo Popup window. 
  * @author Patrick Lee
  *
@@ -45,7 +44,7 @@ public class NewPhotoController {
 	/**
 	 * Sets the currently selected File to the file chosen using the FileChooser in this window.
 	 * @param e The event that triggered this event.
-	 * @throws MalformedURLException
+	 * @throws Exception
 	 */
 	@FXML
 	private void chooseFile(ActionEvent e) throws Exception {
@@ -59,7 +58,7 @@ public class NewPhotoController {
 	}
 	/**
 	 * Handles the calling of addNewPhoto() in the parent controller.
-	 * @param e
+	 * @param e The event that triggered this event.
 	 */
 	@FXML
 	private void createPicture(ActionEvent e) {

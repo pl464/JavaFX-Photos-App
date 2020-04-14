@@ -43,11 +43,11 @@ public class PhotoDisplayController extends Controller {
 	/**
 	 * The selected tag name.
 	 */
-	public static String currName = "";
+	static String currName = "";
 	/**
 	 * The selected tag value.
 	 */
-	public static String currVal = "";
+	static String currVal = "";
 	
 	/**
 	* Method to display a photo along with its caption and tags.

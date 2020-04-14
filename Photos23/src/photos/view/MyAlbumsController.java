@@ -222,8 +222,18 @@ public class MyAlbumsController extends Controller{
 	 *
 	 */
 	public class Album {
+		
+		/**
+		 * The name of the album.
+		 */
 		String name;
+		/**
+		 * The number of photos in the album.
+		 */
 		int numPhotos;
+		/**
+		 * The date range of this album.
+		 */
 		String dateRange;
 		/**
 		 * Constructor for an Album object.
@@ -285,6 +295,12 @@ public class MyAlbumsController extends Controller{
 	 *
 	 */
 	class NameComp implements Comparator<Album>{
+		/**
+		 * Compares two albums based on alphabetical order of their names.
+		 * @param a The first Album to be compared.
+		 * @param b The second Album to be compared.
+		 * @return -1 if the first comes before the second, 1 if the first comes after the second, 0 if they are equal
+		 */
 		@Override
 		public int compare(Album a, Album b) {
 			int nameComp = a.getName().compareToIgnoreCase(b.getName());
