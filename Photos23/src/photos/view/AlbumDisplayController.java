@@ -108,7 +108,8 @@ public class AlbumDisplayController extends Controller {
 	 * Triggers the search window for this album.
 	 * @throws Exception
 	 */
-	public void searchAlbum() throws Exception {
+	@FXML
+	private void searchAlbum(ActionEvent e) throws Exception {
 		setAlbumScope(true);
 		sceneManager.switchScene("Search_Window.fxml", users);
 	}
