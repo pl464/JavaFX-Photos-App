@@ -59,6 +59,7 @@ public class Photos extends Application {
 
 	/**
 	 * Ends the application with a write to the save file.
+	 * @throws Exception
 	 */
 	@Override
 	public void stop() throws Exception {

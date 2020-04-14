@@ -35,7 +35,7 @@ import photos.Picture;
 /**
  * The controller class for the Search Window.
  * @author Patrick Lee
- *
+ * @author Lance Luo
  */
 public class SearchController extends Controller{
 	
@@ -92,7 +92,7 @@ public class SearchController extends Controller{
 		});
 	}
 	/**
-	 * Searches for photos inthe given scope given the parameters selected by the user.
+	 * Searches for photos in the given scope given the parameters selected by the user.
 	 * @param e The event that triggered this method.
 	 */
 	@FXML

@@ -38,7 +38,7 @@ public class AdminController extends Controller{
 	private MultipleSelectionModel<String> selectionModel;
 	/**
 	 * Populates the ListView with existing usernames. 
-	 * @param users
+	 * @param users The HashMap of users containing usernames to be displayed.
 	 */
 	public void displayUsers(HashMap<String, User> users) {
 		users.forEach((k,v)->{
@@ -49,8 +49,8 @@ public class AdminController extends Controller{
 	}
 	/**
 	 * Adds a new User to the list of users with the given username, and displays this in the ListView.
-	 * @param username 
-	 * @return True if the user was added successfully, false otherwise.
+	 * @param username The username of the user to be added.
+	 * @return True if the user was added successfully, false otherwise (if the username already existed).
 	 * @throws Exception
 	 */
 	public boolean addUser(String username) throws Exception {

@@ -27,10 +27,6 @@ public class NewTagController {
 	 */
 	AlbumDisplayController albumDisplayController;
 
-	/**
-	 * Sets the parent controller to be referenced once this window is done.
-	 * @param albumsController The controller to be set.
-	 */
 	@FXML private TextField tagname;
 	@FXML private Button okButton;
 	@FXML private Button cancelButton;

@@ -1,10 +1,5 @@
 package photos.view;
 
-/**
-* @author Lance Luo
-* @author Patrick Lee
-* Class to represent the new user popup.
-*/
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

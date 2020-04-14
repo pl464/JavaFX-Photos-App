@@ -31,7 +31,7 @@ public class AlbumDisplayController extends Controller {
 	@FXML private Button logoutButton;
 	@FXML private Button searchButton;
 	@FXML private Button newTagButton;
-	@FXML public Button addPhotoButton;
+	@FXML private Button addPhotoButton;
 	@FXML private FlowPane previews;
 	@FXML private Button viewButton;
 	@FXML private Button removeButton;
@@ -83,7 +83,7 @@ public class AlbumDisplayController extends Controller {
 	}
 	/**
 	 * Adds a new photo to the album given its file path, and displays its preview in this window.
-	 * @param file
+	 * @param file The File of the photo to be added.
 	 * @return True if the photo was added successfully, false otherwise.
 	 */
 	public boolean addNewPhoto(File file) {
@@ -94,7 +94,8 @@ public class AlbumDisplayController extends Controller {
 		currUser.albums.get(currAlbum).add(file.toURI().toString());
 		Image image = new Image(file.toURI().toString(), 112, 0, true, false);
 		ImageView newImage = new ImageView(image);
-		displayPhoto("", newImage, file.toURI().toString());
+		String cap = (currUser.pictures.containsKey(file.toURI().toString())) ? currUser.pictures.get(file.toURI().toString()).caption : "";
+		displayPhoto(cap, newImage, file.toURI().toString());
 				
 		//then, add to the current user's pictures if it doesn't exist already
 		if (currUser.pictures.keySet().contains(file.toURI().toString())) {
