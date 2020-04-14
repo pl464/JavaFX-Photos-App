@@ -11,9 +11,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 /**
-* @author Lance Luo
-* @author Patrick Lee
 * Class to represent the new tag popup.
+* @author Lance Luo
 */
 public class NewTagController {
 	/**

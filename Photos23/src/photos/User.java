@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
-* @author Lance Luo
 * Class to represent an individual user.
+* @author Lance Luo
 */
 public class User implements Serializable {
 

@@ -10,8 +10,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 /**
-* @author Lance Luo
 * Class to represent the move photo popup.
+* @author Lance Luo
 */
 public class MovePhotoController {
 

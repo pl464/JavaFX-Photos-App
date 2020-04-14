@@ -21,8 +21,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 
 /**
-* @author Lance Luo
 * Class to represent the photo display window.
+* @author Lance Luo
 */
 public class PhotoDisplayController extends Controller {
 	

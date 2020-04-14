@@ -7,8 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
-* @author Lance Luo
 * Class to represent the edit caption popup.
+* @author Lance Luo
 */
 public class EditCaptionController {
 	

@@ -12,9 +12,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 /**
-* @author Lance Luo
-* Class to represent the add tag popup.
-*/
+ * Class to represent the add tag popup.
+ * @author Lance Luo
+ */
 public class AddTagController {
 	
 	@FXML private Button cancelButton;
