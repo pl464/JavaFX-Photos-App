@@ -31,7 +31,7 @@ public class AlbumDisplayController extends Controller {
 	@FXML private Button logoutButton;
 	@FXML private Button searchButton;
 	@FXML private Button newTagButton;
-	@FXML public Button addPhotoButton;
+	@FXML private Button addPhotoButton;
 	@FXML private FlowPane previews;
 	@FXML private Button viewButton;
 	@FXML private Button removeButton;
@@ -83,8 +83,8 @@ public class AlbumDisplayController extends Controller {
 	}
 	/**
 	 * Adds a new photo to the album given its file path, and displays its preview in this window.
-	 * @param file
-	 * @return
+	 * @param file The File of the photo to be added.
+	 * @return True if the photo was added successfully, false otherwise.
 	 */
 	public boolean addNewPhoto(File file) {
 		//first, add to the current user's album, if it doesn't exist already
@@ -145,7 +145,7 @@ public class AlbumDisplayController extends Controller {
 	}
 	/**
 	 * Switches the scene back to the MyAlbums window.
-	 * @param e
+	 * @param e The event that triggered this method.
 	 * @throws Exception
 	 */
 	@FXML
