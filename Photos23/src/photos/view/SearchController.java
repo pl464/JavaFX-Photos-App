@@ -119,26 +119,26 @@ public class SearchController extends Controller{
 		} 
 		
 		else if (oneTagButton.isSelected()) {
-			if (tag1Button.getText().equals("Tag1") || field1.getText().length() == 0) {
+			if (tag1Button.getText().equals("Tag1") || field1.getText().trim().length() == 0) {
 				Alert alert = new Alert(AlertType.ERROR, "Missing Tag information", ButtonType.OK);
 				alert.showAndWait();
 				return;
 			}
-			String value = field1.getText();
+			String value = field1.getText().trim();
 			results = searchByTag(currTag1, value, albumScope);
 		}
 
 		else if (twoTagButton.isSelected()) {
-			if (tag1Button.getText().equals("Tag1") || field1.getText().length() == 0 ||
-					tag2Button.getText().equals("Tag2") || field2.getText().length() == 0) {
+			if (tag1Button.getText().equals("Tag1") || field1.getText().trim().length() == 0 ||
+					tag2Button.getText().equals("Tag2") || field2.getText().trim().length() == 0) {
 				Alert alert = new Alert(AlertType.ERROR, "Missing Tag information", ButtonType.OK);
 				alert.showAndWait();
 				return;
 			}
 			if (andButton.isSelected()) {
-				results = searchByAnd(tag1Button.getText(), field1.getText(), tag2Button.getText(), field2.getText(), albumScope);
+				results = searchByAnd(tag1Button.getText().trim(), field1.getText(), tag2Button.getText(), field2.getText().trim(), albumScope);
 			} else if (orButton.isSelected()) {
-				results = searchByOr(tag1Button.getText(), field1.getText(), tag2Button.getText(), field2.getText(), albumScope);
+				results = searchByOr(tag1Button.getText().trim(), field1.getText(), tag2Button.getText(), field2.getText().trim(), albumScope);
 			}
 		}
 		
